@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Korean Deveoper Support Team Blog</title>
   
+  <subtitle>한국 마이크로소프트 개발기술지원팀의 블로그입니다.</subtitle>
+  <link href="https://sehyoon.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/atom.xml" rel="self"/>
-  
-  <link href="http://example.com/"/>
+  <link href="https://sehyoon.github.io/"/>
   <updated>2021-07-12T04:00:23.149Z</updated>
-  <id>http://example.com/</id>
+  <id>https://sehyoon.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>kords</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2021/07/12/hello-world/"/>
-    <id>http://example.com/2021/07/12/hello-world/</id>
+    <link href="https://sehyoon.github.io/2021/07/12/hello-world/"/>
+    <id>https://sehyoon.github.io/2021/07/12/hello-world/</id>
     <published>2021-07-12T04:00:23.149Z</published>
     <updated>2021-07-12T04:00:23.149Z</updated>
     
