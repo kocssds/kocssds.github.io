@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Korean Deveoper Support Team Blog</title>
   
-  <subtitle>한국 마이크로소프트 개발기술지원팀의 블로그입니다.</subtitle>
+  <subtitle>한국 마이크로소프트 개발기술지원팀의 블로그 테스트 중 입니다.</subtitle>
   <link href="https://sehyoon.github.io/atom.xml" rel="self"/>
   
   <link href="https://sehyoon.github.io/"/>
