@@ -62,9 +62,9 @@
     
     
     
-    <category term="Azure DevOps" scheme="https://sehyoon.github.io/tags/Azure-DevOps/"/>
-    
     <category term="Build Pipeline" scheme="https://sehyoon.github.io/tags/Build-Pipeline/"/>
+    
+    <category term="Azure DevOps" scheme="https://sehyoon.github.io/tags/Azure-DevOps/"/>
     
   </entry>
   
