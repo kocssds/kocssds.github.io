@@ -47,7 +47,7 @@
     <link href="https://sehyoon.github.io/2021/07/14/AzureDevOpsLogExtract/"/>
     <id>https://sehyoon.github.io/2021/07/14/AzureDevOpsLogExtract/</id>
     <published>2021-07-14T05:10:37.000Z</published>
-    <updated>2021-07-21T06:05:21.327Z</updated>
+    <updated>2021-07-22T06:45:29.308Z</updated>
     
     <content type="html"><![CDATA[<p>Azure DevOps Pipeline에서 실패가 보고된다면, 가장 먼저 확인해야 하는 부분은 로그 부분일 것이다. </p><p><img src="/images/2021-07-14-14-19-10.png"></p><p>실패한 파이프라인을 클릭하고, 확인하고자 원하는 시간에 수행된 Build Pipeline을 선택하여 클릭한다.</p><p><img src="/images/2021-07-14-14-21-44.png"></p><p>그리고, 우측상단의 풀다운 메뉴를 크릭하면, 문제가 발생한 시점의 빌드 로그를 다운로드 받을 수 있다.</p><p><img src="/images/2021-07-14-14-23-39.png"></p><p>만일, Azure DevOps 측면에서 좀 더 자세한 로그 정보를 확인하길 원한다면, Build Pipeline의 Variables에 System.Debug 를 true로 설정하고 빌드를 시도한다면, 좀 더 자세한 로그를 출력할 수 있다. </p><p><img src="/images/2021-07-14-14-29-46.png"></p><p>더 많은 정보 확인: <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/review-logs?view=azure-devops">Review logs to diagnose pipeline issues</a></p>]]></content>
     
@@ -62,9 +62,9 @@
     
     
     
-    <category term="Azure DevOps Build Pipeline" scheme="https://sehyoon.github.io/tags/Azure-DevOps-Build-Pipeline/"/>
-    
     <category term="Azure DevOps" scheme="https://sehyoon.github.io/tags/Azure-DevOps/"/>
+    
+    <category term="Build Pipeline" scheme="https://sehyoon.github.io/tags/Build-Pipeline/"/>
     
   </entry>
   
