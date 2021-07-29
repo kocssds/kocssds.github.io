@@ -317,7 +317,7 @@ body {
   font-weight: bold;
 }
 #header {
-  height: 140px;
+  height: 265px;
   position: relative;
   border-bottom: 1px solid #d2d2d2;
 }
@@ -327,7 +327,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 265px;
 }
 #header:before {
   top: 0;
