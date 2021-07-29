@@ -35,11 +35,11 @@
     
     
     
+    <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
+    
     <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
     
     <category term="Linux" scheme="https://kocssds.github.io/tags/Linux/"/>
-    
-    <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
   </entry>
   
@@ -61,11 +61,11 @@
     
     
     
-    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
-    
     <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
     <category term="VMSS" scheme="https://kocssds.github.io/tags/VMSS/"/>
+    
+    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
     
   </entry>
   
@@ -89,9 +89,9 @@
     
     
     
-    <category term="Build Pipeline" scheme="https://kocssds.github.io/tags/Build-Pipeline/"/>
-    
     <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
+    
+    <category term="Build Pipeline" scheme="https://kocssds.github.io/tags/Build-Pipeline/"/>
     
   </entry>
   
