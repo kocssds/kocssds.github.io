@@ -327,7 +327,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  height: 265px;
+  height: 140px;
 }
 #header:before {
   top: 0;
@@ -350,13 +350,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 20%;
+  height: 40%;
   background-color: #fff;
   z-index: -1;
 }
 #site-header-blog-wrapper {
   position: absolute;
-  top: 20%;
+  top: 40%;
   left: 0;
   width: 100%;
   height: 100%;
