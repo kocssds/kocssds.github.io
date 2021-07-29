@@ -2,15 +2,15 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Korea Deveoper Support Team Blog</title>
   
-  <subtitle>개발기술지원팀의 블로그 테스트 중입니다.</subtitle>
-  <link href="https://sehyoon.github.io/atom.xml" rel="self"/>
+  <subtitle>개발기술지원팀의 블로그입니다.</subtitle>
+  <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
-  <link href="https://sehyoon.github.io/"/>
+  <link href="https://kocssds.github.io/"/>
   <updated>2021-07-27T12:51:21.169Z</updated>
-  <id>https://sehyoon.github.io/</id>
+  <id>https://kocssds.github.io/</id>
   
   <author>
-    <name>kords</name>
+    <name>korea Developer Support Team</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Azure DevOps를 이용하여 Spring Boot 앱을 Linux VM에 배포하기</title>
-    <link href="https://sehyoon.github.io/2021/07/27/DeployAppToLinuxVM/"/>
-    <id>https://sehyoon.github.io/2021/07/27/DeployAppToLinuxVM/</id>
+    <link href="https://kocssds.github.io/2021/07/27/DeployAppToLinuxVM/"/>
+    <id>https://kocssds.github.io/2021/07/27/DeployAppToLinuxVM/</id>
     <published>2021-07-27T12:37:58.000Z</published>
     <updated>2021-07-27T12:51:21.169Z</updated>
     
@@ -35,18 +35,18 @@
     
     
     
-    <category term="Azure DevOps" scheme="https://sehyoon.github.io/tags/Azure-DevOps/"/>
+    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
     
-    <category term="Linux" scheme="https://sehyoon.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://kocssds.github.io/tags/Linux/"/>
     
-    <category term="QuickStart" scheme="https://sehyoon.github.io/tags/QuickStart/"/>
+    <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
   </entry>
   
   <entry>
     <title>Azure DevOps를 이용하여 Spring Boot 앱을 Azure Virtual Machine Scale Set(VMSS)에 배포하기</title>
-    <link href="https://sehyoon.github.io/2021/07/22/DeployApptoVMSS/"/>
-    <id>https://sehyoon.github.io/2021/07/22/DeployApptoVMSS/</id>
+    <link href="https://kocssds.github.io/2021/07/22/DeployApptoVMSS/"/>
+    <id>https://kocssds.github.io/2021/07/22/DeployApptoVMSS/</id>
     <published>2021-07-22T06:17:58.000Z</published>
     <updated>2021-07-22T07:05:44.118Z</updated>
     
@@ -61,18 +61,18 @@
     
     
     
-    <category term="Azure DevOps" scheme="https://sehyoon.github.io/tags/Azure-DevOps/"/>
+    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
     
-    <category term="QuickStart" scheme="https://sehyoon.github.io/tags/QuickStart/"/>
+    <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
-    <category term="VMSS" scheme="https://sehyoon.github.io/tags/VMSS/"/>
+    <category term="VMSS" scheme="https://kocssds.github.io/tags/VMSS/"/>
     
   </entry>
   
   <entry>
     <title>Azure Pipeline에서의 로그 확인</title>
-    <link href="https://sehyoon.github.io/2021/07/14/AzureDevOpsLogExtract/"/>
-    <id>https://sehyoon.github.io/2021/07/14/AzureDevOpsLogExtract/</id>
+    <link href="https://kocssds.github.io/2021/07/14/AzureDevOpsLogExtract/"/>
+    <id>https://kocssds.github.io/2021/07/14/AzureDevOpsLogExtract/</id>
     <published>2021-07-14T05:10:37.000Z</published>
     <updated>2021-07-22T06:45:29.308Z</updated>
     
@@ -89,16 +89,16 @@
     
     
     
-    <category term="Build Pipeline" scheme="https://sehyoon.github.io/tags/Build-Pipeline/"/>
+    <category term="Build Pipeline" scheme="https://kocssds.github.io/tags/Build-Pipeline/"/>
     
-    <category term="Azure DevOps" scheme="https://sehyoon.github.io/tags/Azure-DevOps/"/>
+    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://sehyoon.github.io/2021/07/12/hello-world/"/>
-    <id>https://sehyoon.github.io/2021/07/12/hello-world/</id>
+    <link href="https://kocssds.github.io/2021/07/12/hello-world/"/>
+    <id>https://kocssds.github.io/2021/07/12/hello-world/</id>
     <published>2021-07-12T04:00:23.149Z</published>
     <updated>2021-07-12T04:00:23.149Z</updated>
     
