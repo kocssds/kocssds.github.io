@@ -14,7 +14,7 @@
 <meta property="og:description" content="아래의 절차는 Azure DevOps에서 Azure Image Builder를 사용하는 과정을 참고하는 예제이며, 실제 업무상에 적용을 위해서는 많은 부분의 고려가 필요함을 미리 언급합니다.  Azure DevOps에서 ‘Build immutable image’ Task를 이용하면, 원하는 머신 이미지를 만들 수 있습니다. 이를 이용하여 몇몇 프로그램이 수">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-08-25T10:32:23.000Z">
-<meta property="article:modified_time" content="2021-08-25T11:14:25.796Z">
+<meta property="article:modified_time" content="2021-08-25T11:19:12.328Z">
 <meta property="article:author" content="korea Developer Support Team">
 <meta property="article:tag" content="Azure DevOps">
 <meta property="article:tag" content="QuickStart">
@@ -150,17 +150,45 @@
 <li>   해당 Project로 들어가서 좌측의 Release 메뉴를 선택합니다. 이후 New Pipeline을 생성합니다. </li>
 <li>   Empty Job을 선택합니다. </li>
 <li>   Agent Job에서 Agent Specification을 ubuntu-18.04 로 선택합니다.</li>
-<li>   Agent Job에 Build Immutable Image task를 추가합니다.     -    적당한 Display Name을 입력합니다.    -    Packer template 은 “Auto generated”로 선택합니다.    - Azure subscription을 선택합니다.     - Managed VM Disk image의 체크 박스를 체크하고, Name을 입력합니다. (해당 이름으로 Azure 리소스 그룹에 이미지가 생성됩니다.)    -    Storage location에 적절한 region을 지정합니다.    -    Storage account에 앞서서 생성한 storage account를 선택합니다.    -    Resource Group에는 Storage account와 동일한 Resource group을 선택합니다.    -    Base image source는 “Gallery”로 선택합니다.     -    Base image는 “ubuntu 18.04-LTS”를 선택합니다.     -    Deployment Package는 일반적으로 Artifacts가 생성된 위치를 지정합니다. (일반적으로 $(System.DefaultWorkingDirectory)에 대한 상대적인 위치인데, _&lt;project 이름&gt;/drop이라는 형태를 갖습니다.)    -    Deployment script는 앞서서 생성한 script 파일을 입력합니다. (Build pipeline에서 .sh파일도 artifacts에 포함했으므로 해당 파일 이름을 입력합니다.)</li>
+<li>   Agent Job에 Build Immutable Image task를 추가합니다. </li>
+</ol>
+<ul>
+<li>   적당한 Display Name을 입력합니다.</li>
+<li>   Packer template 은 “Auto generated”로 선택합니다.</li>
+<li>Azure subscription을 선택합니다. </li>
+<li>Managed VM Disk image의 체크 박스를 체크하고, Name을 입력합니다. (해당 이름으로 Azure 리소스 그룹에 이미지가 생성됩니다.)</li>
+<li>   Storage location에 적절한 region을 지정합니다.</li>
+<li>   Storage account에 앞서서 생성한 storage account를 선택합니다.</li>
+<li>   Resource Group에는 Storage account와 동일한 Resource group을 선택합니다.</li>
+<li>   Base image source는 “Gallery”로 선택합니다. </li>
+<li>   Base image는 “ubuntu 18.04-LTS”를 선택합니다. </li>
+<li>   Deployment Package는 일반적으로 Artifacts가 생성된 위치를 지정합니다. (일반적으로 $(System.DefaultWorkingDirectory)에 대한 상대적인 위치인데, _&lt;project 이름&gt;/drop이라는 형태를 갖습니다.)</li>
+<li>   Deployment script는 앞서서 생성한 script 파일을 입력합니다. (Build pipeline에서 .sh파일도 artifacts에 포함했으므로 해당 파일 이름을 입력합니다.)</li>
+</ul>
+<ol start="6">
 <li>   설정을 마치면, YAML 파일로는 아래와 같이 구성됩니다. <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">steps:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">task:</span> <span class="string">PackerBuild@1</span></span><br><span class="line">  <span class="attr">displayName:</span> <span class="string">&#x27;Build immutable image&#x27;</span></span><br><span class="line">  <span class="attr">inputs:</span></span><br><span class="line">    <span class="attr">ConnectedServiceName:</span> <span class="string">‘&lt;service</span> <span class="string">connection&gt;&#x27;</span></span><br><span class="line">    <span class="attr">managedImageName:</span> <span class="string">myvmssimage2</span></span><br><span class="line">    <span class="attr">location:</span> <span class="string">koreasouth</span></span><br><span class="line">    <span class="attr">storageAccountName:</span> <span class="string">myvmssstorage</span></span><br><span class="line">    <span class="attr">azureResourceGroup:</span> <span class="string">&#x27;vmss_rg&#x27;</span></span><br><span class="line">    <span class="attr">baseImage:</span> <span class="string">&#x27;Canonical:UbuntuServer:18.04-LTS:linux&#x27;</span></span><br><span class="line">    <span class="attr">packagePath:</span> <span class="string">&#x27;_vmsstest/drop&#x27;</span></span><br><span class="line">    <span class="attr">deployScriptPath:</span> <span class="string">deploy.sh</span></span><br></pre></td></tr></table></figure></li>
 <li>   Build Pipepline과 Release Pipeline이 정상적으로 run 된다면, ‘vmss_rg’ 라는 Azure 리소스 그룹내에 myvmssstorage 라는 storage account 와 myvmssimage2 라는 이름이 image가 생성된 것으로 확인할 수 있습니다. </li>
 <li>   해당 머신 이미지안에는 Java 실행환경과 build Pipeline을 통해 만들어진 spring boot 앱이 포함되어 있습니다. 그러므로, 해당 머신 이미지를 기반으로 Azure VM Scale Set 인스턴스를 구성할 수 있습니다. </li>
 </ol>
 <h3 id="Azure-Virtual-Machine-Scale-Set에-이미지-업데이트"><a href="#Azure-Virtual-Machine-Scale-Set에-이미지-업데이트" class="headerlink" title="Azure Virtual Machine Scale Set에 이미지 업데이트"></a><strong>Azure Virtual Machine Scale Set에 이미지 업데이트</strong></h3><ol>
 <li>   앞서서 생성한 머신 이미지를 이용하여 만들어진 Azure VM Scale Set 인스턴스에 포함된 Spring Boot 앱의 업데이트가 필요하다면, 앞선 절차의 Build/Release Pipeline을 통해서 머신 이미지를 다시 생성할 수 있으며 이를 기존의 Azure VM Scale Set의 인스턴스에 업데이트 해야 합니다.</li>
-<li>기존의 절차에 따라 새롭게 생성된 머신 이미지를 기존의 Azure VM Scale Set 인스턴스에 업데이트를 하기 위해 Release Pipeline에 Azure CLI Task를 추가합니다. <pre><code> - Azure CLI Task를 추가합니다.    -    Azure Resource Manager Connection에 기존의 생성된 머신 이미지가 존재하는 Azure 리소스 그룹에 접근이 가능하도록 선택합니다.     -    Script Type은 shell을 선택합니다.    -    Script location은 inline Script를 선택합니다.     -    Inline script에 아래를 추가합니다. (‘vms’는 VMSS의 이름, ‘vmss_rg’는 VMSS가 존재하는 resource group)
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vmss update --name vms --resource-group vmss_rg --set virtualMachineProfile.storageProfile.imageReference.id=&quot;/subscriptions/&lt;subcscription-Id&gt;/resourceGroups/vmss_rg/providers/Microsoft.Compute/images/&lt;managed image name&gt;&quot;</span><br></pre></td></tr></table></figure></li>
-<li>   새롭게 배포된 spring boot 앱을 이미지 업데이트 이후에 즉시 실행해야 한다면, 추가적으로 Azure CLI Task를 이용하여 원격에서 구동할 수 있습니다.     - Azure CLI Task를 추가합니다.     - 앞선 Azure CLI task의 작업과 동일하며, inline script에 아래와 같이 다르게 입력합니다. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vmss list-instances -n vms -g vmss_rg --query &quot;[].id&quot; --output tsv | az vmss run-command invoke --scripts &quot;java -jar /lib/artifacts/spring-boot-complete-0.0.1-SNAPSHOT.jar &gt;/dev/null 2&gt;&amp;1 &amp;&quot;  --command-id RunShellScript --ids @-</span><br></pre></td></tr></table></figure></li>
+<li>   기존의 절차에 따라 새롭게 생성된 머신 이미지를 기존의 Azure VM Scale Set 인스턴스에 업데이트를 하기 위해 Release Pipeline에 Azure CLI Task를 추가합니다. </li>
+</ol>
+<ul>
+<li>Azure CLI Task를 추가합니다.</li>
+<li>   Azure Resource Manager Connection에 기존의 생성된 머신 이미지가 존재하는 Azure 리소스 그룹에 접근이 가능하도록 선택합니다. </li>
+<li>   Script Type은 shell을 선택합니다.</li>
+<li>   Script location은 inline Script를 선택합니다. </li>
+<li>   Inline script에 아래를 추가합니다. (‘vms’는 VMSS의 이름, ‘vmss_rg’는 VMSS가 존재하는 resource group)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vmss update --name vms --resource-group vmss_rg --set virtualMachineProfile.storageProfile.imageReference.id=&quot;/subscriptions/&lt;subcscription-Id&gt;/resourceGroups/vmss_rg/providers/Microsoft.Compute/images/&lt;managed image name&gt;&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li>   새롭게 배포된 spring boot 앱을 이미지 업데이트 이후에 즉시 실행해야 한다면, 추가적으로 Azure CLI Task를 이용하여 원격에서 구동할 수 있습니다. </li>
+</ol>
+<ul>
+<li>Azure CLI Task를 추가합니다. </li>
+<li>앞선 Azure CLI task의 작업과 동일하며, inline script에 아래와 같이 다르게 입력합니다. <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vmss list-instances -n vms -g vmss_rg --query <span class="string">&quot;[].id&quot;</span> --output tsv | az vmss run-command invoke --scripts <span class="string">&quot;java -jar /lib/artifacts/spring-boot-complete-0.0.1-SNAPSHOT.jar &gt;/dev/null 2&gt;&amp;1 &amp;&quot;</span>  --command-id RunShellScript --ids @-</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="4">
 <li>   모든 Pipeline이 정상적으로 실행 완료가 되면 새롭게 배포된 spring boot앱이 VMSS에 정상적으로 실행되는 지 확인하십시오.</li>
 </ol>
 
