@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기 | Korea Deveoper Support Team Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Azure DevOps Service는 CI&#x2F;CD 파이프라인 기능을 이용해 다양한 방법을 통해서 앱을 원하는 배포 머신에 배포할 수 있습니다. 그 중에서 Deployment Groups에 배포 머신을 등록하고 이를 이용하여 앱을 배포하는 방법에 대해서는 다음과 같은 절차를 통해서 접근해 보실 수 있습니다.  Azure DevOps Repo의 구성    Az">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기">
+<meta property="og:url" content="https://kocssds.github.io/2021/09/27/DeployAppUsingDeployGroups/index.html">
+<meta property="og:site_name" content="Korea Deveoper Support Team Blog">
+<meta property="og:description" content="Azure DevOps Service는 CI&#x2F;CD 파이프라인 기능을 이용해 다양한 방법을 통해서 앱을 원하는 배포 머신에 배포할 수 있습니다. 그 중에서 Deployment Groups에 배포 머신을 등록하고 이를 이용하여 앱을 배포하는 방법에 대해서는 다음과 같은 절차를 통해서 접근해 보실 수 있습니다.  Azure DevOps Repo의 구성    Az">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2021-09-27T00:47:05.000Z">
+<meta property="article:modified_time" content="2021-09-27T01:04:51.925Z">
+<meta property="article:author" content="korea Developer Support Team">
+<meta property="article:tag" content="Azure DevOps">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="QuickStart">
+<meta property="article:tag" content="Deployment Groups">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Korea Deveoper Support Team Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+        <!-- <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a> -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://kocssds.github.io"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Korea Deveoper Support Team Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">개발기술지원팀의 블로그입니다.</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DeployAppUsingDeployGroups" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="/2021/09/27/DeployAppUsingDeployGroups/" class="article-date-single">
+  <time datetime="2021-09-27T00:47:05.000Z" itemprop="datePublished">2021-09-27</time>
+</a>
+        
+        <a data-url="https://kocssds.github.io/2021/09/27/DeployAppUsingDeployGroups/" data-id="cku1y90b10000y4oyax4jc6sq" class="article-share-link">공유</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Azure DevOps Service는 CI/CD 파이프라인 기능을 이용해 다양한 방법을 통해서 앱을 원하는 배포 머신에 배포할 수 있습니다. 그 중에서 Deployment Groups에 배포 머신을 등록하고 이를 이용하여 앱을 배포하는 방법에 대해서는 다음과 같은 절차를 통해서 접근해 보실 수 있습니다. </p>
+<h3 id="Azure-DevOps-Repo의-구성"><a href="#Azure-DevOps-Repo의-구성" class="headerlink" title="Azure DevOps Repo의 구성"></a><strong>Azure DevOps Repo의 구성</strong></h3><ol>
+<li>   Azure DevOps 포털에 로그온 합니다.</li>
+<li>   New Project를 선택하여 새로운 Project를 생성합니다. </li>
+<li>   생성된 Project로 들어가서 좌측의 Repos메뉴를 선택합니다. </li>
+<li>   이후 Import a Repository 부분에서 사용하고자 하는 Spring Boot 예제를 import 하여 구성합니다. (예, <a target="_blank" rel="noopener" href="https://github.com/spring-guides/gs-spring-boot.git">https://github.com/spring-guides/gs-spring-boot.git</a>  )</li>
+</ol>
+<h3 id="Azure-Build-Pipeline을-구성"><a href="#Azure-Build-Pipeline을-구성" class="headerlink" title="Azure Build Pipeline을 구성"></a><strong>Azure Build Pipeline을 구성</strong></h3><ol>
+<li>   Pipelines에서 New Pipeline을 선택합니다. </li>
+<li>   Azure Repos Git을 선택하여 이전 단계에서 구성한 Repo를 선택합니다. </li>
+<li>   Configure your pipeline 단계에서는 Repo에 구성된 소스를 컴파일하기 위해 Maven (build your java project and run tests with Apache Maven)을 선택합니다. </li>
+<li>   프로젝트 내에 azure-pipelines.yml 파일이 자동 생성되고, 아래와 같이 내용을 추가합니다.</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pool:</span></span><br><span class="line">  <span class="attr">vmImage:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line"><span class="attr">steps:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">task:</span> <span class="string">Maven@3</span></span><br><span class="line">  <span class="attr">inputs:</span></span><br><span class="line">    <span class="attr">mavenPomFile:</span> <span class="string">&#x27;complete/pom.xml&#x27;</span></span><br><span class="line">    <span class="attr">mavenOptions:</span> <span class="string">&#x27;-Xmx3072m&#x27;</span></span><br><span class="line">    <span class="attr">javaHomeOption:</span> <span class="string">&#x27;JDKVersion&#x27;</span></span><br><span class="line">    <span class="attr">jdkVersionOption:</span> <span class="string">&#x27;1.8&#x27;</span></span><br><span class="line">    <span class="attr">jdkArchitectureOption:</span> <span class="string">&#x27;x64&#x27;</span></span><br><span class="line">    <span class="attr">publishJUnitResults:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testResultsFiles:</span> <span class="string">&#x27;**/surefire-reports/TEST-*.xml&#x27;</span></span><br><span class="line">    <span class="attr">goals:</span> <span class="string">&#x27;package&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">task:</span> <span class="string">CopyFiles@2</span></span><br><span class="line">  <span class="attr">displayName:</span> <span class="string">&#x27;Copy Files to: $(build.artifactstagingdirectory)&#x27;</span></span><br><span class="line">  <span class="attr">inputs:</span></span><br><span class="line">    <span class="attr">SourceFolder:</span> <span class="string">&#x27;$(system.defaultworkingdirectory)&#x27;</span></span><br><span class="line">    <span class="attr">Contents:</span> <span class="string">&#x27;**/*.?(jar|sh)&#x27;</span></span><br><span class="line">    <span class="attr">TargetFolder:</span> <span class="string">&#x27;$(build.artifactstagingdirectory)&#x27;</span></span><br><span class="line">    <span class="attr">flattenFolders:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">condition:</span> <span class="string">succeededOrFailed()</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">task:</span> <span class="string">PublishBuildArtifacts@1</span></span><br><span class="line">  <span class="attr">inputs:</span></span><br><span class="line">    <span class="attr">PathtoPublish:</span> <span class="string">&#x27;$(Build.ArtifactStagingDirectory)&#x27;</span></span><br><span class="line">    <span class="attr">ArtifactName:</span> <span class="string">&#x27;drop&#x27;</span></span><br><span class="line">    <span class="attr">publishLocation:</span> <span class="string">&#x27;Container&#x27;</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>   빌드가 완료되면, Artifacts가 생성됩니다. 해당 Artifacts는 Azure Release Pipeline에서 download 받아서 처리될 예정입니다.</li>
+</ol>
+<h3 id="Deployment-Groups의-생성"><a href="#Deployment-Groups의-생성" class="headerlink" title="Deployment Groups의 생성"></a><strong>Deployment Groups의 생성</strong></h3><ol>
+<li>   Azure Pipelines의 메뉴 중에 Deployment Groups를 선택하고, “New”을 클릭하여 생성합니다. </li>
+<li>   “Deployment group name”에 임의의 이름 (예를 들면, ‘testdg’)을 입력하여 생성합니다. </li>
+</ol>
+<h3 id="Personal-Access-Token의-생성"><a href="#Personal-Access-Token의-생성" class="headerlink" title="Personal Access Token의 생성"></a><strong>Personal Access Token의 생성</strong></h3><ol>
+<li>   Azure DevOps Portal에 로그온 후에 우측 상단에 User Settings메뉴가 존재하며, 이들 중 Personal Access Token 메뉴로 들어갑니다.</li>
+<li>   New Token을 선택합니다. </li>
+<li>   Name 과 Expiration Date를 원하는 내용으로 입력합니다.</li>
+<li>   Scopes는 Custom defined를 선택하고, Show All Scopes를 클릭하여 확장합니다. </li>
+<li>   리스트된 Scope 중에 Deployment Groups에 Read &amp; Manage 를 선택하여 생성합니다.</li>
+<li>   이후 Personal Access Token을 Copy 하여 기억합니다. </li>
+</ol>
+<h3 id="Deployment-Groups에-포함될-Linux-VM의-생성"><a href="#Deployment-Groups에-포함될-Linux-VM의-생성" class="headerlink" title="Deployment Groups에 포함될 Linux VM의 생성"></a><strong>Deployment Groups에 포함될 Linux VM의 생성</strong></h3><ol>
+<li>   Azure Portal에 로그온 합니다. </li>
+<li>   Create a resource 를 통해서 Virtual Machine을 생성합니다. </li>
+<li>   적절한 Subscription을 입력합니다. </li>
+<li>   Resource Group에 Create New를 통해서 새롭게 생성합니다. </li>
+<li>   Virtual machine name을 입력합니다. </li>
+<li>   Region을 선택합니다. </li>
+<li>   Image 를 선택합니다. (예를 들어, Ubuntu Server 18.04를 선택할 수 있습니다.)</li>
+<li>   Size 를 선택합니다. (예를 들어, Standard D2s_V3 를 선택할 수 있습니다.)</li>
+<li>   테스트 및 확인을 위해서 SSH (22)를 허용할 수 있습니다. </li>
+<li>   Review + Create 를 통해서 생성합니다. </li>
+</ol>
+<h3 id="TeamServicesAgentLinux의-설치"><a href="#TeamServicesAgentLinux의-설치" class="headerlink" title="TeamServicesAgentLinux의 설치"></a><strong>TeamServicesAgentLinux의 설치</strong></h3><ol start="7">
+<li>   Azure Portal에서 앞서서 생성한 VM 리소스를 선택합니다. </li>
+<li>   Settings에 Extensions를 선택합니다. </li>
+<li>   +Add를 통해 “Azure Pipeline Agent For Linux”를 선택합니다. </li>
+<li>   “Configure Azure Pipelines Agent For Linux Extension” 화면을 통해서 구성합니다. </li>
+<li>   Azure DevOps Organization Url 에 기존에 생성한 Azure DevOps의 Project가 존재하는 조직을 포함하여 입력합니다. (예를 들어, <a target="_blank" rel="noopener" href="https://dev.azure.com/organizationName&quot;">https://dev.azure.com/organizationName&quot;</a>)</li>
+<li>   Team Project에 앞서서 구성한 Team Project의 이름을 입력합니다. </li>
+<li>   Deployment Group에 앞서서 구성한 Deployment group name을 입력합니다. 이것은 앞서서 ‘Deployment Groups의 생성’ 단계에서 입력한 이름입니다. </li>
+<li>   Personal Access Token에는 앞서서 ‘Personal Access Token의 생성’ 단계에서 복사한 값을 입력합니다.</li>
+<li>   Review + Create를 통해 설치합니다. </li>
+<li>   정상적으로 설치가 완료되면, Azure DevOps의 Deployment Groups에 생성한 Deployment Group (예를 들어, ‘Testdg’)을 선택하고, Targets를 확인하면, Healthy 상태의 VM이 등록된 것을 확인할 수 있습니다.</li>
+</ol>
+<h3 id="Release-Pipeline의-구성-및-실행"><a href="#Release-Pipeline의-구성-및-실행" class="headerlink" title="Release Pipeline의 구성 및 실행"></a><strong>Release Pipeline의 구성 및 실행</strong></h3><ol>
+<li>   Azure DevOps 포털에서 Releases를 선택하고, 새로운 Release를 생성합니다. </li>
+<li>   Add an Artifact를 통해서 Build Pipeline에서 설정된 Project와 Source를 선택한 후에 Add 합니다.</li>
+<li>   Add a stage에서 Empty Job을 선택합니다.</li>
+<li>   View Stage Task를 클릭합니다. </li>
+<li>   새로운 Release Pipeline의 Tasks에 존재하는 Agent Job을 선택하고, 우측의 remove 버튼을 클릭하여 제거합니다. </li>
+<li>   Add phase options를 클릭하여, add a deployment group job을 선택합니다. </li>
+<li>   Deployment group job 에서 임의의 Name을 입력하고, Deployment targets의 Deployment group은 앞서서 생성한 Deployment Group을 선택합니다. (예를 들어, ‘testdg’)</li>
+<li>   Add a task to Deployment Group Job (+ 메뉴)을 통해 Task를 추가합니다. Task는 ‘Bash’를 검색하여 추가합니다. </li>
+<li>   Bash task 안에서 Type을 inline으로 선택하고 다음의 script 를 입력합니다.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /lib/artifacts/</span><br><span class="line">sudo cp $(System.DefaultWorkingDirectory)/_Test/drop/spring-boot-complete-0.0.1-SNAPSHOT.jar/lib/artifacts/</span><br><span class="line">sudo java -jar /lib/artifacts/spring-boot-complete-0.0.1-SNAPSHOT.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></li>
+<li>   저장하고, release 를 생성한 후에 실행합니다. </li>
+</ol>
+<h3 id="테스트-및-확인-Linux-VM의-추가-Port-오픈"><a href="#테스트-및-확인-Linux-VM의-추가-Port-오픈" class="headerlink" title="테스트 및 확인 (Linux VM의 추가 Port 오픈)"></a><strong>테스트 및 확인 (Linux VM의 추가 Port 오픈)</strong></h3><ol>
+<li>   Azure 포털에서 이전 단계에서 생성한 VM 환경으로 들어갑니다.</li>
+<li>   Settings의 Networking메뉴를 선택하고, 이후 Add Inbound Port Rule을 선택합니다.</li>
+<li>   Source Port range는 “*”, Destination Port는 “8080”, Source 와 Destination을 둘 다 Any로 선택하고, TCP에 대해서 “Allow”로써 추가합니다.</li>
+<li>   이후 TCP 8080 포트가 오픈 됩니다.</li>
+<li>   해당 VM의 public IP:8080 을 통해 Spring Boot App의 실행을 확인합니다.</li>
+</ol>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deployment-Groups/" rel="tag">Deployment Groups</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QuickStart/" rel="tag">QuickStart</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/25/DeployApptoVMSSusingImageBuilder/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">Azure DevOps Pipeline에서 Azure Image Builder를 이용하여 Spring Boot App을 Azure Virtual Machine Scale Set(VMSS)에 배포하기</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/27/DeployAppUsingDeployGroups/">Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/25/DeployApptoVMSSusingImageBuilder/">Azure DevOps Pipeline에서 Azure Image Builder를 이용하여 Spring Boot App을 Azure Virtual Machine Scale Set(VMSS)에 배포하기</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/27/DeployAppToLinuxVM/">Azure DevOps를 이용하여 Spring Boot 앱을 Linux VM에 배포하기</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/DeployApptoVMSS/">Azure DevOps를 이용하여 Spring Boot 앱을 Azure Virtual Machine Scale Set(VMSS)에 배포하기</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/14/AzureDevOpsLogExtract/">Azure Pipeline에서의 로그 확인</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build-Pipeline/" rel="tag">Build Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment-Groups/" rel="tag">Deployment Groups</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/" rel="tag">QuickStart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMSS/" rel="tag">VMSS</a></li></ul> -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/">Azure DevOps</a><span class="tag-list-count">5</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Build-Pipeline">Build Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Linux">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/QuickStart">QuickStart</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/VMSS">VMSS</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/">QuickStart</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Azure-DevOps">Azure DevOps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Linux">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/VMSS">VMSS</a><span class="tag-list-count">2</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">2021 / 07</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Azure-DevOps/" style="font-size: 20px;">Azure DevOps</a> <a href="/tags/Build-Pipeline/" style="font-size: 10px;">Build Pipeline</a> <a href="/tags/Deployment-Groups/" style="font-size: 10px;">Deployment Groups</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/QuickStart/" style="font-size: 16.67px;">QuickStart</a> <a href="/tags/VMSS/" style="font-size: 13.33px;">VMSS</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 korea Developer Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script href="/.css" src="/.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
