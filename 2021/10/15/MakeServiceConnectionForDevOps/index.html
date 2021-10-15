@@ -15,7 +15,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://kocssds.github.io/images/2021-10-15-15-31-26.png">
 <meta property="article:published_time" content="2021-10-15T06:24:54.000Z">
-<meta property="article:modified_time" content="2021-10-15T06:37:43.414Z">
+<meta property="article:modified_time" content="2021-10-15T08:45:37.501Z">
 <meta property="article:author" content="korea Developer Support Team">
 <meta property="article:tag" content="Azure DevOps">
 <meta property="article:tag" content="Service Connection">
@@ -123,7 +123,7 @@
 <li>Manage Service Principal</li>
 </ul>
 <p><img src="/images/2021-10-15-15-31-26.png"></p>
-<h3 id="Manage-Service-Principal"><a href="#Manage-Service-Principal" class="headerlink" title="Manage Service Principal"></a><strong>Manage Service Principal</strong></h3><p>“Manage Service Principal”을 클릭하면, Azure 포털에 존재하는 Service Principal을 확인할 수 있는 데, 일반적으로 <org name>-<proj name>-<UUID> 형태의 이름을 가지고 있습니다. 해당 Service Principal의 좌측 메뉴에 Certificates $ secret을 확인해 보면, 기본적으로 Client secrets가 존재하고, 이에 대한 만료일이 지정되어 있기 때문에 이에 대해서는 반드시 확인하여 만료이후에 Azure Pipeline 처리에 문제가 되지 않도록 관리해야 합니다.<br>간혹 갱신 이후에 “Failed to obtain the Json Web Token(JWT) using service principal client ID. Exception message: AADSTS7000215: Invalid client secret is provided.” 이와 같은 오류가 발생할 수 있는 데, 이 경우에는 아래와 같은 단계를 통해서 문제를 피할 수 있습니다.</p>
+<h3 id="Manage-Service-Principal"><a href="#Manage-Service-Principal" class="headerlink" title="Manage Service Principal"></a><strong>Manage Service Principal</strong></h3><p>“Manage Service Principal”을 클릭하면, Azure 포털에 존재하는 Service Principal을 확인할 수 있는 데, 일반적으로 “조직이름-프로젝트이름-UUID” 형태의 이름을 가지고 있습니다. 해당 Service Principal의 좌측 메뉴에 Certificates $ secret을 확인해 보면, 기본적으로 Client secrets가 존재하고, 이에 대한 만료일이 지정되어 있기 때문에 이에 대해서는 반드시 확인하여 만료이후에 Azure Pipeline 처리에 문제가 되지 않도록 관리해야 합니다.<br>간혹 갱신 이후에 “Failed to obtain the Json Web Token(JWT) using service principal client ID. Exception message: AADSTS7000215: Invalid client secret is provided.” 이와 같은 오류가 발생할 수 있는 데, 이 경우에는 아래와 같은 단계를 통해서 문제를 피할 수 있습니다.</p>
 <ol>
 <li>   Service Connections에서 문제가 되는 Service Connection을 선택하고 Edit를 클릭합니다. </li>
 <li>   Description(optional)을 수정하고 저장합니다. (Verify는 하지 마십시오.)</li>
