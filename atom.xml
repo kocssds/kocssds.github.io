@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Korea Deveoper Support Team Blog</title>
+  <title>Korea Developer Support Team Blog</title>
   
   <subtitle>개발기술지원팀의 블로그입니다.</subtitle>
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://kocssds.github.io/</id>
   
   <author>
-    <name>korea Developer Support Team</name>
+    <name>Korea Developer Support Team</name>
     
   </author>
   
