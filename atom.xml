@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2021-10-15T08:45:37.501Z</updated>
+  <updated>2021-11-03T01:24:39.092Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Azure DevOps와 사용자에 대한 흥미로운 몇 가지 의견들</title>
+    <link href="https://kocssds.github.io/2021/11/03/ManageAzureDevOpsAndUsers/"/>
+    <id>https://kocssds.github.io/2021/11/03/ManageAzureDevOpsAndUsers/</id>
+    <published>2021-11-03T01:04:15.000Z</published>
+    <updated>2021-11-03T01:24:39.092Z</updated>
+    
+    <content type="html"><![CDATA[<p>Azure DevOps 서비스에서는 사용자를 조직에 직접추가하고 관리할 수 있는 기능이 존재합니다. 이에 대해서 몇가지 흥미로운 아래와 같은 사실을 참고하실 수 있습니다.</p><ol><li><p>동일한 Email을 사용하여 Business 혹은 Personal account의 사용을 허용하더라도 사용하지 않는 것이 좋습니다.  </p><blockquote><p>We recommend using a different email or user principal name (UPN) for your personal and business accounts, rather than using the same, even though it’s allowed. This eliminates the challenge of disambiguating between your business and personal accounts when the email/UPN is the same. &lt;출처: <a href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/add-external-user?view=azure-devops&gt;">https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/add-external-user?view=azure-devops&gt;</a></p></blockquote></li><li><p>   Azure DevOps에 등록된 사용자에 대해서 기대하는 계정 타입으로의 변경(AAD 혹은 Personal)은 기존의 계정을 제거하고 다시 추가하는 방법을 통해서 가능합니다. Azure DevOps에서 계정 타입을 switch 할 수 있는 기능은 없습니다.</p></li><li><p>Azure DevOps Access Level을 Stakeholder에서 Basic으로 변경을 할 수 있는 권한주체 확인과 관련해서는 <strong>Project Collection Administrator</strong> 또는 <strong>Owner</strong>의 경우에 가능합니다. </p><blockquote><p>“For users tasked with managing organization or collection-level features —such as, projects, policies, processes, retention policies, agent and deployment pools, and extensions—add them to the Project Collection Administrators group.” &lt;출처: <a href="https://github.com/MicrosoftDocs/azure-devops-docs/blob/master/docs/organizations/security/set-project-collection-level-permissions.md&gt;">https://github.com/MicrosoftDocs/azure-devops-docs/blob/master/docs/organizations/security/set-project-collection-level-permissions.md&gt;</a></p></blockquote></li><li><p>   하나의 테넌트에 두개의 AAD 보안 그룹이 있고, 이 그룹이 각각 DevOps 조직을 소유하고 있습니다. 그 중 한 AAD 그룹에 사용자를 추가하면, Azure DevOps에 로그온이 되는 지에 대해서는 AAD에 사용자를 추가하더라도 Azure DevOps의 조직에 사용자를 직접 추가해야 합니다. 개념적으로 보면 Azure DevOps의 사용자는 AAD 사용자와 “매핑”이 되는 것이며, AAD에서 사용자를 추가/삭제한다고 해서 Azure DevOps에 자동으로 반영이 되지 않습니다. </p></li><li><p>   Azure DevOps 가 구독과 연계되어 생성되는 것인지에 대해서는 Azure DevOps는 파이프라인, 에이전트 풀 등에 추가 과금을 하거나 서비스 연결을 생성하기 위하여 구독을 설정하여 사용할 수 있으나 Azure DevOps가 구독을 연결해야만 생성되는 서비스는 아닙니다. 구독을 연결하지 않고도 서비스는 free tier로도 사용하실 수 있습니다. 그리고 Azure DevOps는 ‘조직’이라는 큰 단위에서 하위 팀 프로젝트들을 관리하는데, 여러 조직이 하나의 구독과 연결될 수 있습니다. 다시 말하자면, 구독과 서비스의 생성은 별개라고 할 수 있습니다. </p></li><li><p>   하나의 AAD 테넌트에서 하나의 DevOps 앱만 사용하는지, 생성시 이를 명시적으로 분할할 수 있는지에 대해서는 하나의 AAD 테넌트에서 Azure DevOps 앱은 분리가 되지 않습니다. Azure DevOps 앱을 두 개 만들어 조직에 각각 나눠지는 구조는 불가능합니다.</p></li><li><p>Azure DevOps 로그인을 할 때 사용자에 대한 특정 위치에서의 접근을 막고자 하는 목적이라면 AAD에서 제공하는 IP 기반으로 하는 조건부 액세스 정책을 고려해볼 수 있습니다.</p><blockquote><p>&lt;<a href="https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview#common-signals">https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview#common-signals</a><br>(Common signals &gt; IP Location information 부분 참고&gt;</p></blockquote></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Azure DevOps 서비스에서는 사용자를 조직에 직접추가하고 관리할 수 있는 기능이 존재합니다. 이에 대해서 몇가지 흥미로운 아래와 같은 사실을 참고하실 수 있습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;동일한 Email을 사용하여 Business </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Azure DevOps에서의 Service Connection에 대해</title>
