@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2021-11-03T01:27:18.976Z</updated>
+  <updated>2021-12-03T05:05:27.468Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Azure DevOps Agent를 systemd 서비스로 구동 시 No such file or directory 오류를 만날 수 있다</title>
+    <link href="https://kocssds.github.io/2021/12/03/AzureDevOpsServiceAsSystemd/"/>
+    <id>https://kocssds.github.io/2021/12/03/AzureDevOpsServiceAsSystemd/</id>
+    <published>2021-12-03T04:57:46.000Z</published>
+    <updated>2021-12-03T05:05:27.468Z</updated>
+    
+    <content type="html"><![CDATA[<p>Azure DevOps Pipeline Agent머신으로 Linux 머신을 사용할 때 실행되는 Agent 프로그램을 systemd 서비스로 구동 시킬 수 있습니다. 일반적인 경우에는 <a href="https://docs.microsoft.com/ko-kr/azure/devops/pipelines/agents/v2-linux?view=azure-devops#run-as-a-systemd-service">https://docs.microsoft.com/ko-kr/azure/devops/pipelines/agents/v2-linux?view=azure-devops#run-as-a-systemd-service</a> 문서 내용을 참고하여 systemd 서비스로의 설정에는 복잡한 문제가 있어 보이진 않습니다. 하지만, 흥미롭게도 아래와 같은 문제를 만날 수도 있습니다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[testadm@scselagentw1 azure-devops]$ sudo ./svc.sh status</span><br><span class="line">/etc/systemd/system/vsts.agent.testcorp.Default.scselagentw1.service</span><br><span class="line">● vsts.agent.testcorp.Default.scselagentw1.service - Azure Pipelines Agent (testcorp.Default.scselagentw1)</span><br><span class="line"></span><br><span class="line">   Loaded: loaded (/etc/systemd/system/vsts.agent.testcorp.Default.scselagentw1.service; enabled; vendor preset: disabled)</span><br><span class="line">   Active: failed (Result: exit-code) since Mon 2021-11-08 17:53:45 KST; 45s ago</span><br><span class="line">  Process: 1259 ExecStart=/agent/azure-devops/runsvc.sh (code=exited, status=200/CHDIR)</span><br><span class="line">Main PID: 1259 (code=exited, status=200/CHDIR)</span><br><span class="line"></span><br><span class="line">Nov 08 17:53:45 scselagentw1 systemd[1]: Started Azure Pipelines Agent (testcorp.Default.scselagentw1).</span><br><span class="line">Nov 08 17:53:45 scselagentw1 systemd[1259]: Failed at step CHDIR spawning /agent/azure-devops/runsvc.sh: No such file or directory</span><br><span class="line">Nov 08 17:53:45 scselagentw1 systemd[1]: vsts.agent.testcorp.Default.scselagentw1.service: main process exited, code=exit...0/CHDIR</span><br><span class="line">Nov 08 17:53:45 scselagentw1 systemd[1]: Unit vsts.agent.testcorp.Default.scselagentw1.service entered failed state.</span><br><span class="line">Nov 08 17:53:45 scselagentw1 systemd[1]: vsts.agent.testcorp.Default.scselagentw1.service failed.</span><br><span class="line">Hint: Some lines were ellipsized, use -l to show <span class="keyword">in</span> full.</span><br></pre></td></tr></table></figure><p>해당 문제가 흥미로운 이유는 오류메시지에 기인하여 관련된 서비스 파일등의 권한문제를 확인해 봤음에도 불구하고 별다른 권한 등의 문제가 존재하지 않는 다는 점입니다. 만일, 그렇다면 해당 agent가 설치된 폴더의 위치가 <a href="https://github.com/Azure/azure-storage-fuse">blobfuse</a>에 위치하는 지 확인해 보실 수 있습니다.<br>원인은 blobfuse file system이 mount되기 전에 Azure DevOps agent 서비스가 더 일찍 실행되는 경우가 발생할 수 있으며 이로 인하여 No such file or directory오류가 발생할 수 있기 때문입니다. 그러므로, 이와 같은 경우에는 agent 설치 위치를 blobfuse가 아닌 local 로 변경하여 해당 문제를 회피하는 것이 좋겠습니다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Azure DevOps Pipeline Agent머신으로 Linux 머신을 사용할 때 실행되는 Agent 프로그램을 systemd 서비스로 구동 시킬 수 있습니다. 일반적인 경우에는 &lt;a href=&quot;https://docs.microsoft.com</summary>
+      
+    
+    
+    
+    
+    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
+    
+    <category term="Linux" scheme="https://kocssds.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Azure DevOps와 사용자에 대한 흥미로운 몇 가지 의견들</title>
