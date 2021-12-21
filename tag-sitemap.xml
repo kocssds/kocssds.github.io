@@ -3,14 +3,28 @@
 
 
     <url>
-        <loc>https://kocssds.github.io/tags/Linux/</loc>
-        <lastmod>2021-12-03T05:05:27.468Z</lastmod>
+        <loc>https://kocssds.github.io/tags/Notification/</loc>
+        <lastmod>2021-12-21T01:07:01.271Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Azure-Boards/</loc>
+        <lastmod>2021-12-21T01:07:01.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Azure-DevOps/</loc>
+        <lastmod>2021-12-21T01:07:01.271Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Linux/</loc>
         <lastmod>2021-12-03T05:05:27.468Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
