@@ -4,17 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>태그: Azure DevOps+Build Pipeline | Korea Developer Support Team Blog</title>
+  <title>Guest users are not permitted to access this organization as per organization policy | Korea Developer Support Team Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="개발기술지원팀의 블로그입니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Korea Developer Support Team Blog">
-<meta property="og:url" content="https://kocssds.github.io/tags/Azure-DevOps/Build-Pipeline/index.html">
+  <meta name="description" content="Azure DevOps에 게스트 사용자를 이용해 Organization을 만들었을 때, 생성하는 것까지는 성공한 것으로 보이나 해당 Organization에 접근이 불가능합니다. (TF909091: Guest users are not permitted to access this organization as per organization policy) TF9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guest users are not permitted to access this organization as per organization policy">
+<meta property="og:url" content="https://kocssds.github.io/2022/01/13/GuestUserAreNotPermittedToAccessOrg/index.html">
 <meta property="og:site_name" content="Korea Developer Support Team Blog">
-<meta property="og:description" content="개발기술지원팀의 블로그입니다.">
+<meta property="og:description" content="Azure DevOps에 게스트 사용자를 이용해 Organization을 만들었을 때, 생성하는 것까지는 성공한 것으로 보이나 해당 Organization에 접근이 불가능합니다. (TF909091: Guest users are not permitted to access this organization as per organization policy) TF9">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-01-13-10-10-23.png">
+<meta property="article:published_time" content="2022-01-13T01:08:18.000Z">
+<meta property="article:modified_time" content="2022-01-13T01:18:04.098Z">
 <meta property="article:author" content="Korea Developer Support Team">
+<meta property="article:tag" content="Azure DevOps">
+<meta property="article:tag" content="Azure AD">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kocssds.github.io/images/2022-01-13-10-10-23.png">
   
     <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
   
@@ -32,7 +38,7 @@
   
   
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/.css" src="/.js">
+<link rel="stylesheet" href="/.css">
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -77,39 +83,66 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-GuestUserAreNotPermittedToAccessOrg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/14/AzureDevOpsLogExtract/" class="archive-article-date">
-  <time datetime="2021-07-14T05:10:37.000Z" itemprop="datePublished">2021 / 7 / 14</time>
-</a>
-      
+      <header class="article-header-single">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/14/AzureDevOpsLogExtract/">Azure Pipeline에서의 로그 확인</a>
+    <h1 class="article-title" itemprop="name">
+      Guest users are not permitted to access this organization as per organization policy
     </h1>
   
 
-    </header>
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="/2022/01/13/GuestUserAreNotPermittedToAccessOrg/" class="article-date-single">
+  <time datetime="2022-01-13T01:08:18.000Z" itemprop="datePublished">2022-01-13</time>
+</a>
+        
+        <a data-url="https://kocssds.github.io/2022/01/13/GuestUserAreNotPermittedToAccessOrg/" data-id="ckyca95sa0000a8oyfjt08v7w" class="article-share-link">공유</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Azure DevOps에 게스트 사용자를 이용해 Organization을 만들었을 때, 생성하는 것까지는 성공한 것으로 보이나 해당 Organization에 접근이 불가능합니다. (<strong>TF909091: Guest users are not permitted to access this organization as per organization policy</strong>)</p>
+<p>TF909091 코드는 메시지 그대로 게스트 사용자가 정책에 의하여 조직에 접근할 수 없음을 의미합니다.<br>외부 사용자의 접근 허용 여부를 결정하는 “<strong>External Guest Access</strong>”라고 하는 옵션이 현재 기본 <strong>Off</strong>인 것으로 확인되는데, 보안적인 측면에서 게스트 사용자가 조직에 접근하지 못하는 상황입니다.</p>
+<p>해당 문제를 피할 수 있는 방법은 현재 Guest인 사용자를 Member로 전환하고 브라우저 캐시를 완전히 삭제 후 로그인하실 수 있습니다.<br> <img src="/images/2022-01-13-10-10-23.png"></p>
+<p>&lt;이미지 출처: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/azure/devops/organizations/accounts/add-external-user?view=azure-devops#prerequisites">https://docs.microsoft.com/ko-kr/azure/devops/organizations/accounts/add-external-user?view=azure-devops#prerequisites</a> &gt;</p>
+<p>Azure AD 게스트 사용자를 Member로 전환하는 방법에 대해서는 문서 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/faq-azure-access?view=azure-devops#q--how-can-i-convert-an-azure-ad-guest-into-a-member-">“Q: How can I convert an Azure AD guest into a member?” Access via Azure AD FAQs | Microsoft Docs</a> 를 참고하셨으면 좋겠습니다. </p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/12/21/NotificationForAzureBoards/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">Azure Boards 내에서 특정 이메일로의 Notification 방법</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

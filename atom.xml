@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2021-12-21T01:07:01.271Z</updated>
+  <updated>2022-01-13T01:18:04.098Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Guest users are not permitted to access this organization as per organization policy</title>
+    <link href="https://kocssds.github.io/2022/01/13/GuestUserAreNotPermittedToAccessOrg/"/>
+    <id>https://kocssds.github.io/2022/01/13/GuestUserAreNotPermittedToAccessOrg/</id>
+    <published>2022-01-13T01:08:18.000Z</published>
+    <updated>2022-01-13T01:18:04.098Z</updated>
+    
+    <content type="html"><![CDATA[<p>Azure DevOps에 게스트 사용자를 이용해 Organization을 만들었을 때, 생성하는 것까지는 성공한 것으로 보이나 해당 Organization에 접근이 불가능합니다. (<strong>TF909091: Guest users are not permitted to access this organization as per organization policy</strong>)</p><p>TF909091 코드는 메시지 그대로 게스트 사용자가 정책에 의하여 조직에 접근할 수 없음을 의미합니다.<br>외부 사용자의 접근 허용 여부를 결정하는 “<strong>External Guest Access</strong>”라고 하는 옵션이 현재 기본 <strong>Off</strong>인 것으로 확인되는데, 보안적인 측면에서 게스트 사용자가 조직에 접근하지 못하는 상황입니다.</p><p>해당 문제를 피할 수 있는 방법은 현재 Guest인 사용자를 Member로 전환하고 브라우저 캐시를 완전히 삭제 후 로그인하실 수 있습니다.<br> <img src="/images/2022-01-13-10-10-23.png"></p><p>&lt;이미지 출처: <a href="https://docs.microsoft.com/ko-kr/azure/devops/organizations/accounts/add-external-user?view=azure-devops#prerequisites">https://docs.microsoft.com/ko-kr/azure/devops/organizations/accounts/add-external-user?view=azure-devops#prerequisites</a> &gt;</p><p>Azure AD 게스트 사용자를 Member로 전환하는 방법에 대해서는 문서 <a href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/faq-azure-access?view=azure-devops#q--how-can-i-convert-an-azure-ad-guest-into-a-member-">“Q: How can I convert an Azure AD guest into a member?” Access via Azure AD FAQs | Microsoft Docs</a> 를 참고하셨으면 좋겠습니다. </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Azure DevOps에 게스트 사용자를 이용해 Organization을 만들었을 때, 생성하는 것까지는 성공한 것으로 보이나 해당 Organization에 접근이 불가능합니다. (&lt;strong&gt;TF909091: Guest users are no</summary>
+      
+    
+    
+    
+    
+    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
+    
+    <category term="Azure AD" scheme="https://kocssds.github.io/tags/Azure-AD/"/>
+    
+  </entry>
   
   <entry>
     <title>Azure Boards 내에서 특정 이메일로의 Notification 방법</title>
