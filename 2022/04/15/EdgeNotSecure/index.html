@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Edge 브라우저에서 주소창에 “안전하지 않음” 메시지가 나옵니다 | Korea Developer Support Team Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Microsoft (Chrominum) Edge 브라우저를 사용하는 중에 간혹 주소입력창에 “안전하지 않음” 이라는 메시지를 확인할 수 있습니다.Edge 브라우저에서는 기본적으로 HTTP를 사용하거나 인증서가 완전하지 않은 경우에 “안전하지 않음” 이라는 메시지가 주소창에 표시될 수 있습니다.이에 대해서 HTTP를 주로 사용하여 관리하는 사내 사이트에 접근">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Edge 브라우저에서 주소창에 “안전하지 않음” 메시지가 나옵니다">
+<meta property="og:url" content="https://kocssds.github.io/2022/04/15/EdgeNotSecure/index.html">
+<meta property="og:site_name" content="Korea Developer Support Team Blog">
+<meta property="og:description" content="Microsoft (Chrominum) Edge 브라우저를 사용하는 중에 간혹 주소입력창에 “안전하지 않음” 이라는 메시지를 확인할 수 있습니다.Edge 브라우저에서는 기본적으로 HTTP를 사용하거나 인증서가 완전하지 않은 경우에 “안전하지 않음” 이라는 메시지가 주소창에 표시될 수 있습니다.이에 대해서 HTTP를 주로 사용하여 관리하는 사내 사이트에 접근">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-15-09-54-32.png">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-15-09-53-54.png">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-15-09-56-34.png">
+<meta property="article:published_time" content="2022-04-15T00:37:58.000Z">
+<meta property="article:modified_time" content="2022-04-15T01:05:23.140Z">
+<meta property="article:author" content="Korea Developer Support Team">
+<meta property="article:tag" content="Microsoft Edge">
+<meta property="article:tag" content="Chromium">
+<meta property="article:tag" content="Not Secure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kocssds.github.io/images/2022-04-15-09-54-32.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+        <!-- <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a> -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="검색"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://kocssds.github.io"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Korea Developer Support Team Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">개발기술지원팀의 블로그입니다.</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-EdgeNotSecure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Edge 브라우저에서 주소창에 “안전하지 않음” 메시지가 나옵니다
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="/2022/04/15/EdgeNotSecure/" class="article-date-single">
+  <time datetime="2022-04-15T00:37:58.000Z" itemprop="datePublished">2022-04-15</time>
+</a>
+        
+        <a data-url="https://kocssds.github.io/2022/04/15/EdgeNotSecure/" data-id="cl1zqb6m40000qwoy9hse94yq" class="article-share-link">공유</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Microsoft (Chrominum) Edge 브라우저를 사용하는 중에 간혹 주소입력창에 “안전하지 않음” 이라는 메시지를 확인할 수 있습니다.<br>Edge 브라우저에서는 <em><strong>기본적으로 HTTP를 사용하거나 인증서가 완전하지 않은 경우</strong></em>에 “<em><strong>안전하지 않음</strong></em>” 이라는 메시지가 주소창에 표시될 수 있습니다.<br>이에 대해서 HTTP를 주로 사용하여 관리하는 사내 사이트에 접근할 때, 해당 메시지를 숨기고 싶은 경우가 있는 데, 이 경우에는 그룹정책을 통해서 해당 메시지를 감출 수 있습니다. </p>
+<p>기본적으로 다음의 그룹정책을 통해 적용이 가능합니다. 그룹 정책 또는 레지스트리에 원하는 도메인을 추가하여 안전하지 않음 메시지를 회피할 수 있습니다.</p>
+<p><strong>[그룹 정책을 이용한 방법]</strong></p>
+<ol>
+<li>   아래 경로의 그룹정책 편집을 선택합니다. </li>
+</ol>
+<blockquote>
+<p>그룹 정책 이름 : <em><strong>안전하지 않은 원본에 대한 보안 제한이 적용되는 위치 제어</strong></em></p>
+</blockquote>
+<blockquote>
+<p>그룹 정책 경로 : 관리 템플릿 / Microsoft Edge </p>
+</blockquote>
+<p>** 사전 요구 사항 : MSEdge.admx 관리 템플릿이 적용되어있어야 합니다. </p>
+<ol start="2">
+<li><p>사용을 선택후, 표시 버튼을 클릭하여 등록하려는 주소를 지정합니다.<br><img src="/images/2022-04-15-09-54-32.png"></p>
+</li>
+<li><p>여러 사이트를 등록할 수 있습니다. url 입력시, 와일드카드를 인식합니다.<br><img src="/images/2022-04-15-09-53-54.png"><br>상세 url 작성 패턴은 해당 링크를 따릅니다. <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/DeployEdge/edge-learnmmore-url-list-filter%20format">Microsoft Edge URL 정책용 필터 형식 | Microsoft Docs</a></p>
+</li>
+</ol>
+<p>•     Edge://policy에서 “정책 새로 고침” 하여 내용을 반영합니다.<br> <img src="/images/2022-04-15-09-56-34.png"></p>
+<p>•    앞서서 언급한 그룹정책은 아래의 레지스트리와 관련이 있으므로 참고하실 수 있습니다. </p>
+<p> <em><strong>비보안 원본에 대해 보안 제한이 적용되는 위치 제어</strong></em> : <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/DeployEdge/microsoft-edge-policies#windows-information-and-settings">OverrideSecurityRestrictionsOnInsecureOrigin</a></p>
+<p>•    추가적으로 정책 적용후에도 여전히 일부 사이트에선 안전하지 않음 문구가 나타날 수 있습니다. 해당 사이트들은 https 사이트에서 http컨텐츠가 혼합된 mixed content 사이트로, 해당 페이지에서 http 리소스를 https로 전환 후에 안전하지 않음 표시가 사라짐을 확인할 수 있습니다.</p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Not-Secure/" rel="tag">Not Secure</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/25/MustNotRunwithSudo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">Must Not Run with Sudo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/15/EdgeNotSecure/">Edge 브라우저에서 주소창에 “안전하지 않음” 메시지가 나옵니다</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/25/MustNotRunwithSudo/">Must Not Run with Sudo</a>
+          </li>
+        
+          <li>
+            <a href="/2022/02/06/SSLPolicyErrorInPipeAgent/">Linux 환경에서 Azure Pipeline Agent 실행시에 [SSL Policy Errors] 발생 이슈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/13/GuestUserAreNotPermittedToAccessOrg/">Guest users are not permitted to access this organization as per organization policy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/21/NotificationForAzureBoards/">Azure Boards 내에서 특정 이메일로의 Notification 방법</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Boards/" rel="tag">Azure Boards</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Pipeline/" rel="tag">Azure Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Pipeline-Agent/" rel="tag">Azure Pipeline Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build-Pipeline/" rel="tag">Build Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment-Groups/" rel="tag">Deployment Groups</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSA/" rel="tag">MSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Not-Secure/" rel="tag">Not Secure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/" rel="tag">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/" rel="tag">QuickStart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service-Connection/" rel="tag">Service Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMSS/" rel="tag">VMSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSTS-Agent/" rel="tag">VSTS Agent</a></li></ul> -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/">Azure DevOps</a><span class="tag-list-count">12</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-AD">Azure AD</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Boards">Azure Boards</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Pipeline">Azure Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Pipeline-Agent">Azure Pipeline Agent</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Build-Pipeline">Build Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Linux">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/MSA">MSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Notification">Notification</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/QuickStart">QuickStart</a><span class="tag-list-count">4</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/">QuickStart</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Azure-DevOps">Azure DevOps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Linux">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/VMSS">VMSS</a><span class="tag-list-count">2</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">아카이브</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">2021 / 07</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">태그 클라우드</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Azure-AD/" style="font-size: 12.5px;">Azure AD</a> <a href="/tags/Azure-Boards/" style="font-size: 10px;">Azure Boards</a> <a href="/tags/Azure-DevOps/" style="font-size: 20px;">Azure DevOps</a> <a href="/tags/Azure-Pipeline/" style="font-size: 10px;">Azure Pipeline</a> <a href="/tags/Azure-Pipeline-Agent/" style="font-size: 10px;">Azure Pipeline Agent</a> <a href="/tags/Build-Pipeline/" style="font-size: 10px;">Build Pipeline</a> <a href="/tags/Chromium/" style="font-size: 10px;">Chromium</a> <a href="/tags/Deployment-Groups/" style="font-size: 12.5px;">Deployment Groups</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/MSA/" style="font-size: 10px;">MSA</a> <a href="/tags/Microsoft-Edge/" style="font-size: 10px;">Microsoft Edge</a> <a href="/tags/Not-Secure/" style="font-size: 10px;">Not Secure</a> <a href="/tags/Notification/" style="font-size: 10px;">Notification</a> <a href="/tags/QuickStart/" style="font-size: 17.5px;">QuickStart</a> <a href="/tags/Service-Connection/" style="font-size: 10px;">Service Connection</a> <a href="/tags/VMSS/" style="font-size: 12.5px;">VMSS</a> <a href="/tags/VSTS-Agent/" style="font-size: 10px;">VSTS Agent</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Korea Developer Support Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script href="/.css" src="/.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
