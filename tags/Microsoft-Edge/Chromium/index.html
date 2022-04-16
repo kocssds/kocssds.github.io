@@ -4,23 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Azure DevOps에서의 Service Connection에 대해 | Korea Developer Support Team Blog</title>
+  <title>태그: Microsoft Edge+Chromium | Korea Developer Support Team Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Azure DevOps Pipeline에서 Azure Resource를 사용하여 처리하기 위해서는 Azure Resource에 대한 접근 권한이 필요합니다. 실 예로 Azure Pipeline의 구성을 위해 임의의 Task을 추가하여 실행할 경우에 해당 Task를 실행 시 Azure Resource의 접근을 위해 Azure Subscription 정보를 입">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Azure DevOps에서의 Service Connection에 대해">
-<meta property="og:url" content="https://kocssds.github.io/2021/10/15/MakeServiceConnectionForDevOps/index.html">
+  <meta name="description" content="개발기술지원팀의 블로그입니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Korea Developer Support Team Blog">
+<meta property="og:url" content="https://kocssds.github.io/tags/Microsoft-Edge/Chromium/index.html">
 <meta property="og:site_name" content="Korea Developer Support Team Blog">
-<meta property="og:description" content="Azure DevOps Pipeline에서 Azure Resource를 사용하여 처리하기 위해서는 Azure Resource에 대한 접근 권한이 필요합니다. 실 예로 Azure Pipeline의 구성을 위해 임의의 Task을 추가하여 실행할 경우에 해당 Task를 실행 시 Azure Resource의 접근을 위해 Azure Subscription 정보를 입">
+<meta property="og:description" content="개발기술지원팀의 블로그입니다.">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://kocssds.github.io/images/2021-10-15-15-31-26.png">
-<meta property="article:published_time" content="2021-10-15T06:24:54.000Z">
-<meta property="article:modified_time" content="2021-10-15T08:45:37.501Z">
 <meta property="article:author" content="Korea Developer Support Team">
-<meta property="article:tag" content="Azure DevOps">
-<meta property="article:tag" content="Service Connection">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kocssds.github.io/images/2021-10-15-15-31-26.png">
   
     <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
   
@@ -83,102 +77,58 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-MakeServiceConnectionForDevOps" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header-single">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Azure DevOps에서의 Service Connection에 대해
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/04/15/EdgeNotSecure/" class="archive-article-date">
+  <time datetime="2022-04-15T00:37:58.000Z" itemprop="datePublished">2022 / 4 / 15</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/04/15/EdgeNotSecure/">Edge 브라우저에서 주소창에 “안전하지 않음” 메시지가 나옵니다</a>
     </h1>
   
 
-      </header>
-      <div class="article-share">
-        Last Update: 
-        <a href="/2021/10/15/MakeServiceConnectionForDevOps/" class="article-date-single">
-  <time datetime="2021-10-15T06:24:54.000Z" itemprop="datePublished">2021-10-15</time>
-</a>
-        
-        <a data-url="https://kocssds.github.io/2021/10/15/MakeServiceConnectionForDevOps/" data-id="ckurzwepf0000xgoyh0y692eg" class="article-share-link">공유</a>
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Azure DevOps Pipeline에서 Azure Resource를 사용하여 처리하기 위해서는 Azure Resource에 대한 접근 권한이 필요합니다. 실 예로 Azure Pipeline의 구성을 위해 임의의 Task을 추가하여 실행할 경우에 해당 Task를 실행 시 Azure Resource의 접근을 위해 Azure Subscription 정보를 입력하는 경우가 있는 데, 이에 해당하는 적절한 Service Connection을 생성하여 입력 처리하는 것이 일반적입니다. 이때 필요한 Service Connection은 다음과 같은 과정을 거쳐서 생성할 수 있습니다. </p>
-<h3 id="Azure-DevOps-Service-Connection-추가"><a href="#Azure-DevOps-Service-Connection-추가" class="headerlink" title="Azure DevOps Service Connection 추가"></a><strong>Azure DevOps Service Connection 추가</strong></h3><ol>
-<li>   Azure DevOps 포털에 로그인합니다. </li>
-<li>   해당 Project의 Project settings에 들어갑니다.</li>
-<li>   Service Connections에서 새로운 Service Connection을 생성합니다. </li>
-<li>   New Service Connection에서 Azure Resource Manager를 선택합니다. </li>
-<li>   Authentication Metod는 Service principal (automatic)을 선택한 후 다음을 누릅니다.</li>
-<li>   Scope level은 Subscription으로 선택하고 하단의 Security는 “Grant access permission to all pipelines” 체크합니다.</li>
-<li>   Subscription, Resource Group(기존에 생성한 Resource Group을 선택) 그리고, Service Connection 이름(예를 들어, ”AppConnection”)을 입력하고 저장합니다.</li>
-</ol>
-<p>정상적으로 Service Connection이 생성되면, AppConnection이라는 이름의 Service Connection이 생성이 되며, 이를 클릭하면 아래와 같은 메뉴를 확인할 수 있습니다. </p>
-<ul>
-<li>Manage Service Connection roles</li>
-<li>Manage Service Principal</li>
-</ul>
-<p><img src="/images/2021-10-15-15-31-26.png"></p>
-<h3 id="Manage-Service-Principal"><a href="#Manage-Service-Principal" class="headerlink" title="Manage Service Principal"></a><strong>Manage Service Principal</strong></h3><p>“Manage Service Principal”을 클릭하면, Azure 포털에 존재하는 Service Principal을 확인할 수 있는 데, 일반적으로 “조직이름-프로젝트이름-UUID” 형태의 이름을 가지고 있습니다. 해당 Service Principal의 좌측 메뉴에 Certificates $ secret을 확인해 보면, 기본적으로 Client secrets가 존재하고, 이에 대한 만료일이 지정되어 있기 때문에 이에 대해서는 반드시 확인하여 만료이후에 Azure Pipeline 처리에 문제가 되지 않도록 관리해야 합니다.<br>간혹 갱신 이후에 “Failed to obtain the Json Web Token(JWT) using service principal client ID. Exception message: AADSTS7000215: Invalid client secret is provided.” 이와 같은 오류가 발생할 수 있는 데, 이 경우에는 아래와 같은 단계를 통해서 문제를 피할 수 있습니다.</p>
-<ol>
-<li>   Service Connections에서 문제가 되는 Service Connection을 선택하고 Edit를 클릭합니다. </li>
-<li>   Description(optional)을 수정하고 저장합니다. (Verify는 하지 마십시오.)</li>
-<li>   Service Connection Edit 화면을 빠져나간 후에 해당 페이지를 refresh합니다. </li>
-<li>   다시 Edit 화면으로 들어가서 Verify를 선택합니다. </li>
-<li>   다시 저장 버튼을 클릭하여 저장합니다. </li>
-</ol>
-<h3 id="Manage-service-connection-roles"><a href="#Manage-service-connection-roles" class="headerlink" title="Manage service connection roles"></a><strong>Manage service connection roles</strong></h3><p>또한, “Manage service connection roles”를 클릭하면, Azure Portal로 이동하면서 해당 Service Principal 이 속한 Subscription 정보의 Access Control(IAM)를 확인할 수 있습니다. IAM의 role assignments 메뉴를 확인하면, Azure DevOps에서 등록된 Service Principal 이 “App” type의 <strong>Contributor Role</strong>로써 등록이 된 것으로 확인할 수 있습니다. </p>
-<p>만일, 추가적인 권한이 필요하다면, </p>
-<ol>
-<li>   Add Role Assignment 메뉴로 들어가서 </li>
-<li>   “Role”에 필요한 권한을 선택하고, </li>
-<li>   “Assign access to”에 “user, group or service principal”을 선택, 그리고, “select”에 앞서서 생성한 Service Principal을 검색하여 선택하면, </li>
-</ol>
-<p>원하는 Role에 Azure DevOps에서 생성한 Service Principal을 추가할 수 있습니다. </p>
-
-      
-      
-        <div class="article-disclaimer">
-        
-          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
-        
-        </div>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Service-Connection/" rel="tag">Service Connection</a></li></ul>
-
-    </footer>
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/04/16/RunHtmlAsIEMode/" class="archive-article-date">
+  <time datetime="2022-04-16T14:03:37.000Z" itemprop="datePublished">2022 / 4 / 16</time>
+</a>
+      
   
-    <a href="/2021/11/03/ManageAzureDevOpsAndUsers/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">최신</strong>
-      <div class="article-nav-title">
-        
-          Azure DevOps와 사용자에 대한 흥미로운 몇 가지 의견들
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/04/16/RunHtmlAsIEMode/">로컬 HTM 혹은 HTML파일을 IE모드로 실행 방법</a>
+    </h1>
   
-  
-    <a href="/2021/09/27/DeployAppUsingDeployGroups/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">이전</strong>
-      <div class="article-nav-title">Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기</div>
-    </a>
-  
-</nav>
 
-  
+    </header>
+  </div>
 </article>
+  
+  
+    </div></section>
+  
 
 </section>
         
