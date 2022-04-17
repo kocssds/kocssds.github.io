@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-17T03:43:56.307Z</updated>
+  <updated>2022-04-17T04:24:52.195Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Edge IE 모드에서 세션 분리 안되는 현상</title>
+    <link href="https://kocssds.github.io/2022/04/17/SessionSwitchNotSupportedInIEMode/"/>
+    <id>https://kocssds.github.io/2022/04/17/SessionSwitchNotSupportedInIEMode/</id>
+    <published>2022-04-17T04:16:53.000Z</published>
+    <updated>2022-04-17T04:24:52.195Z</updated>
+    
+    <content type="html"><![CDATA[<p>Microsoft Edge안에서 IE모드가 동작할 경우 브라우저 창을 별도로 실행시키더라도 기본적으로 세션이 분리되지 않습니다. </p><p>①    문제 해결을 위해 가장 일반적인 방법은 “<strong>다른 프로필의 새 Edge 브라우저를 실행</strong>”하는 것입니다.</p><p>②    하지만 일반사용자에게 이를 적용하기 어려움이 있기 때문에 IE모드를 사용하여 특정 도메인에 대해서만 <strong>no-merge</strong> 옵션이 적용되도록 적용할 수 있습니다.</p><p><a href="https://docs.microsoft.com/en-us/deployedge/edge-ie-mode-faq#does-ie-mode-on-microsoft-edge-support-the-no-merge-option-that-was-supported-in-internet-explorer-11">Does IE mode on Microsoft Edge support the ‘no-merge’ option that was supported in Internet Explorer 11?</a></p><p><img src="/images/2022-04-17-13-21-51.png"></p><p><strong>예시</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">site-list</span> <span class="attr">version</span>=<span class="string">&quot;26&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">created-by</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tool</span>&gt;</span>EMIESiteListManager<span class="tag">&lt;/<span class="name">tool</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>12.0.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">date-created</span>&gt;</span>03/31/2022 16:06:23<span class="tag">&lt;/<span class="name">date-created</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">created-by</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span> <span class="attr">url</span>=<span class="string">&quot;test.or.kr&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compat-mode</span>&gt;</span>IE9<span class="tag">&lt;/<span class="name">compat-mode</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">open-in</span> <span class="attr">merge-type</span>=<span class="string">&quot;no-merge&quot;</span>&gt;</span>IE11<span class="tag">&lt;/<span class="name">open-in</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site-list</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Microsoft Edge안에서 IE모드가 동작할 경우 브라우저 창을 별도로 실행시키더라도 기본적으로 세션이 분리되지 않습니다. &lt;/p&gt;
+&lt;p&gt;①    문제 해결을 위해 가장 일반적인 방법은 “&lt;strong&gt;다른 프로필의 새 Edge 브라우저를 </summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+    <category term="Session Switching" scheme="https://kocssds.github.io/tags/Session-Switching/"/>
+    
+  </entry>
   
   <entry>
     <title>IE 모드에서 팝업창의 허용에도 불구하고 창이 차단되는 현상</title>

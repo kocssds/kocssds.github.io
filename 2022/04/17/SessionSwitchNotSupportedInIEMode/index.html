@@ -4,17 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>태그: Linux | Korea Developer Support Team Blog</title>
+  <title>Microsoft Edge IE 모드에서 세션 분리 안되는 현상 | Korea Developer Support Team Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="개발기술지원팀의 블로그입니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Korea Developer Support Team Blog">
-<meta property="og:url" content="https://kocssds.github.io/tags/Linux/index.html">
+  <meta name="description" content="Microsoft Edge안에서 IE모드가 동작할 경우 브라우저 창을 별도로 실행시키더라도 기본적으로 세션이 분리되지 않습니다.  ①    문제 해결을 위해 가장 일반적인 방법은 “다른 프로필의 새 Edge 브라우저를 실행”하는 것입니다. ②    하지만 일반사용자에게 이를 적용하기 어려움이 있기 때문에 IE모드를 사용하여 특정 도메인에 대해서만 no-me">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Microsoft Edge IE 모드에서 세션 분리 안되는 현상">
+<meta property="og:url" content="https://kocssds.github.io/2022/04/17/SessionSwitchNotSupportedInIEMode/index.html">
 <meta property="og:site_name" content="Korea Developer Support Team Blog">
-<meta property="og:description" content="개발기술지원팀의 블로그입니다.">
+<meta property="og:description" content="Microsoft Edge안에서 IE모드가 동작할 경우 브라우저 창을 별도로 실행시키더라도 기본적으로 세션이 분리되지 않습니다.  ①    문제 해결을 위해 가장 일반적인 방법은 “다른 프로필의 새 Edge 브라우저를 실행”하는 것입니다. ②    하지만 일반사용자에게 이를 적용하기 어려움이 있기 때문에 IE모드를 사용하여 특정 도메인에 대해서만 no-me">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-13-21-51.png">
+<meta property="article:published_time" content="2022-04-17T04:16:53.000Z">
+<meta property="article:modified_time" content="2022-04-17T04:24:52.195Z">
 <meta property="article:author" content="Korea Developer Support Team">
+<meta property="article:tag" content="Microsoft Edge">
+<meta property="article:tag" content="Chromium">
+<meta property="article:tag" content="IE Mode">
+<meta property="article:tag" content="Session Switching">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kocssds.github.io/images/2022-04-17-13-21-51.png">
   
     <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
   
@@ -32,7 +40,7 @@
   
   
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/.css" src="/.js">
+<link rel="stylesheet" href="/.css">
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -77,77 +85,70 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-SessionSwitchNotSupportedInIEMode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
     
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Microsoft Edge IE 모드에서 세션 분리 안되는 현상
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="/2022/04/17/SessionSwitchNotSupportedInIEMode/" class="article-date-single">
+  <time datetime="2022-04-17T04:16:53.000Z" itemprop="datePublished">2022-04-17</time>
+</a>
+        
+        <a data-url="https://kocssds.github.io/2022/04/17/SessionSwitchNotSupportedInIEMode/" data-id="cl22sbhtw0000rcoyho4lfzeg" class="article-share-link">공유</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Microsoft Edge안에서 IE모드가 동작할 경우 브라우저 창을 별도로 실행시키더라도 기본적으로 세션이 분리되지 않습니다. </p>
+<p>①    문제 해결을 위해 가장 일반적인 방법은 “<strong>다른 프로필의 새 Edge 브라우저를 실행</strong>”하는 것입니다.</p>
+<p>②    하지만 일반사용자에게 이를 적용하기 어려움이 있기 때문에 IE모드를 사용하여 특정 도메인에 대해서만 <strong>no-merge</strong> 옵션이 적용되도록 적용할 수 있습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/deployedge/edge-ie-mode-faq#does-ie-mode-on-microsoft-edge-support-the-no-merge-option-that-was-supported-in-internet-explorer-11">Does IE mode on Microsoft Edge support the ‘no-merge’ option that was supported in Internet Explorer 11?</a></p>
+<p><img src="/images/2022-04-17-13-21-51.png"></p>
+<p><strong>예시</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">site-list</span> <span class="attr">version</span>=<span class="string">&quot;26&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">created-by</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tool</span>&gt;</span>EMIESiteListManager<span class="tag">&lt;/<span class="name">tool</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>12.0.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">date-created</span>&gt;</span>03/31/2022 16:06:23<span class="tag">&lt;/<span class="name">date-created</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">created-by</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span> <span class="attr">url</span>=<span class="string">&quot;test.or.kr&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compat-mode</span>&gt;</span>IE9<span class="tag">&lt;/<span class="name">compat-mode</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">open-in</span> <span class="attr">merge-type</span>=<span class="string">&quot;no-merge&quot;</span>&gt;</span>IE11<span class="tag">&lt;/<span class="name">open-in</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
+        <div class="article-disclaimer">
+        
+          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
+        
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/12/03/AzureDevOpsServiceAsSystemd/" class="archive-article-date">
-  <time datetime="2021-12-03T04:57:46.000Z" itemprop="datePublished">2021 / 12 / 3</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/12/03/AzureDevOpsServiceAsSystemd/">Azure DevOps Agent를 systemd 서비스로 구동 시 No such file or directory 오류를 만날 수 있다</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/09/27/DeployAppUsingDeployGroups/" class="archive-article-date">
-  <time datetime="2021-09-27T00:47:05.000Z" itemprop="datePublished">2021 / 9 / 27</time>
-</a>
+    </div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/09/27/DeployAppUsingDeployGroups/">Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/27/DeployAppToLinuxVM/" class="archive-article-date">
-  <time datetime="2021-07-27T12:37:58.000Z" itemprop="datePublished">2021 / 7 / 27</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/27/DeployAppToLinuxVM/">Azure DevOps를 이용하여 Spring Boot 앱을 Linux VM에 배포하기</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE-Mode/" rel="tag">IE Mode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Session-Switching/" rel="tag">Session Switching</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/17/PopUpDialogIssueInIEMode/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">IE 모드에서 팝업창의 허용에도 불구하고 창이 차단되는 현상</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
