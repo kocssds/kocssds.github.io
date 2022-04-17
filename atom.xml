@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-17T05:34:11.390Z</updated>
+  <updated>2022-04-17T08:33:24.601Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>내부망에서 Edge 확장 기능 배포 방법</title>
+    <link href="https://kocssds.github.io/2022/04/17/HowToSetupExtensionWithoutPublicNetwork/"/>
+    <id>https://kocssds.github.io/2022/04/17/HowToSetupExtensionWithoutPublicNetwork/</id>
+    <published>2022-04-17T08:08:41.000Z</published>
+    <updated>2022-04-17T08:33:24.601Z</updated>
+    
+    <content type="html"><![CDATA[<p>간혹 아래와 같은 제약상황에서 Edge Extensions을 설치하고자 하는 경우가 있습니다.</p><ul><li>확장(Extension)을 설치할 수 있는 스토어가 외부 존재하여 방화벽으로 차단된 상태</li><li>직접 스토어를 통해 확장 다운로드 및 설치 불가한 상태</li></ul><p>이 문제 해결을 위해 확장의 CRX파일을 내부망의 웹서버에 올려 놓고 AD 그룹정책을 통해 설치할 수 있는 방법으로 접근할 수 있습니다.</p><p><strong>[확장기능 내부망에서 배포]</strong></p><p><em><strong>1.    웹서버 구축</strong></em></p><ul><li>   내부망에서 접속할 수 있는 일종의 ‘내부 확장 스토어’를 만듭니다.</li><li>   IIS의 경우로 설명합니다.</li><li> 해당 웹 사이트(예&gt;myCompany.com)의 MIME Type에 .crx가 application/x-chrome-extension 로 포함되어 있는지 확인합니다.<br><img src="/images/2022-04-17-17-14-56.png"></li></ul><p><em><strong>2.    확장 crx 파일을 웹서버에 저장합니다.</strong></em></p><ul><li><p>원하는 확장(Extension)을 다운로드 받아 웹사이트에서 접근 가능하도록 구성합니다.<br>예를 들면&gt; C:\EdgeExtension\ 디렉토리<br><img src="/images/2022-04-17-17-16-10.png"></p></li><li><p>웹사이트를 통해 접근했을 때 해당 crx 파일들이 다운로드 되는지 확인합니다. 예를 들면&gt; <a href="http://mycompany.com/Cisco-Webex-Extension.crx">http://myCompany.com/Cisco-Webex-Extension.crx</a> </p></li></ul><p><em><strong>3.    Manifest파일 생성</strong></em></p><ul><li>   해당 확장의 업데이트 정보가 담긴 manifest 파일을 생성해야 합니다.</li><li>   메모장을 열고 아래 텍스트를 복사하여 입력하고 저장합니다. 예를 들면&gt;동일 C:\EdgeExtension\ 디렉토리 에 Cisco-Webex-Extension.xml 파일로 저장<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gupdate</span> <span class="attr">xmlns</span>=<span class="string">http://www.google.com/update2/response</span> <span class="attr">protocol</span>=<span class="string">&quot;2.0&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">app</span> <span class="attr">appid</span>=<span class="string">&quot;jlhmfgmfgeifomenelglieieghnjghma&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">updatecheck</span> <span class="attr">codebase</span>=<span class="string">http://mycompany.com/Cisco-Webex-Extension.crx</span> <span class="attr">version</span>=<span class="string">&quot;1.17.0&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">gupdate</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[필수 입력정보]</span><br><span class="line"> - APPID</span><br><span class="line"> - CRX 다운로드(업데이트) 주소</span><br><span class="line"> - 현재 CRX의 버전 //버전 정보를 정확히 입력해야 합니다.</span><br></pre></td></tr></table></figure></li><li>앞서서 언급한 2번과 3번 과정을 반복하여 여러 확장들을 준비합니다.</li></ul><p><em><strong>4.    그룹정책 설정</strong></em></p><ul><li>   ExtensionSettings 확장 관리 설정 구성 그룹정책을 이용해, 위 확장들이 다운로드 후 자동 설치될 수 있도록 설정합니다.<br>아래와 같이 json형태로 각각의 확장과 업데이트_url이 포함된 manifest XML파일의 위치를 지정합니다.<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;*&quot;: &#123;&#125;,</span><br><span class="line">  &quot;jlhmfgmfgeifomenelglieieghnjghma&quot;: &#123;</span><br><span class="line">    &quot;installation_mode&quot;: &quot;force_installed&quot;,</span><br><span class="line">    &quot;update_url&quot;: http://myCompany.com/Cisco-Webex-Extension.xml,</span><br><span class="line">    &quot;override_update_url&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dhheiegalgcabbcobinipgmhepkkeidk&quot;: &#123;</span><br><span class="line">    &quot;installation_mode&quot;: &quot;force_installed&quot;,</span><br><span class="line">    &quot;update_url&quot;: http://myCompany.com/Microsoft-Teams.xml,</span><br><span class="line">    &quot;override_update_url&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;ajanlknhcmbhbdafadmkobjnfkhdiegm&quot;: &#123;</span><br><span class="line">    &quot;installation_mode&quot;: &quot;force_installed&quot;,</span><br><span class="line">    &quot;update_url&quot;: http://myCompany.com/Microsoft-Outlook.xml,</span><br><span class="line">    &quot;override_update_url&quot;: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">주의&gt; 반드시 json 포맷이 valid해야합니다. (포맷 확인을 위해 https://codebeautify.org/jsonviewer를 이용할 수 있습니다.)</span><br></pre></td></tr></table></figure></li><li> 생성된 json텍스트를 복사하여 아래와 같이 ExtensionSettings의 값으로 입력합니다.<br><img src="/images/2022-04-17-17-27-32.png"></li></ul><p><em><strong>5.    확장 설치 확인</strong></em></p><ul><li><p> Edge://policy에 접속한 뒤 ‘정책 새로 고침’을 클릭하면, ExtensionSettings의 상태가 ‘확인’으로 표시되는지 확인합니다.<br><img src="/images/2022-04-17-17-28-03.png"></p></li><li><p> Edge://Extension에 접속하고, 업데이트 버튼을 클릭하면 아래와 같이 내부망에 위치한 웹서버를 통해 확장을 내려 받고 설치가 완료됩니다.<br><img src="/images/2022-04-17-17-28-25.png"></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;간혹 아래와 같은 제약상황에서 Edge Extensions을 설치하고자 하는 경우가 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;확장(Extension)을 설치할 수 있는 스토어가 외부 존재하여 방화벽으로 차단된 상태&lt;/li&gt;
+&lt;li&gt;직접 스토어를 통해 확</summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="Extensions" scheme="https://kocssds.github.io/tags/Extensions/"/>
+    
+  </entry>
   
   <entry>
     <title>로컬 IE 모드란?</title>
@@ -519,32 +548,6 @@
     <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
     <category term="VMSS" scheme="https://kocssds.github.io/tags/VMSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Azure Pipeline에서의 로그 확인</title>
-    <link href="https://kocssds.github.io/2021/07/14/AzureDevOpsLogExtract/"/>
-    <id>https://kocssds.github.io/2021/07/14/AzureDevOpsLogExtract/</id>
-    <published>2021-07-14T05:10:37.000Z</published>
-    <updated>2021-07-22T06:45:29.308Z</updated>
-    
-    <content type="html"><![CDATA[<p>Azure DevOps Pipeline에서 실패가 보고된다면, 가장 먼저 확인해야 하는 부분은 로그 부분일 것이다. </p><p><img src="/images/2021-07-14-14-19-10.png"></p><p>실패한 파이프라인을 클릭하고, 확인하고자 원하는 시간에 수행된 Build Pipeline을 선택하여 클릭한다.</p><p><img src="/images/2021-07-14-14-21-44.png"></p><p>그리고, 우측상단의 풀다운 메뉴를 크릭하면, 문제가 발생한 시점의 빌드 로그를 다운로드 받을 수 있다.</p><p><img src="/images/2021-07-14-14-23-39.png"></p><p>만일, Azure DevOps 측면에서 좀 더 자세한 로그 정보를 확인하길 원한다면, Build Pipeline의 Variables에 System.Debug 를 true로 설정하고 빌드를 시도한다면, 좀 더 자세한 로그를 출력할 수 있다. </p><p><img src="/images/2021-07-14-14-29-46.png"></p><p>더 많은 정보 확인: <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/review-logs?view=azure-devops">Review logs to diagnose pipeline issues</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Azure DevOps Pipeline에서 실패가 보고된다면, 가장 먼저 확인해야 하는 부분은 로그 부분일 것이다. &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/2021-07-14-14-19-10.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;실패한 파이프라인을 클릭</summary>
-      
-    
-    
-    
-    
-    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
-    
-    <category term="Build Pipeline" scheme="https://kocssds.github.io/tags/Build-Pipeline/"/>
     
   </entry>
   
