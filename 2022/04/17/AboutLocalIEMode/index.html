@@ -13,16 +13,16 @@
 <meta property="og:site_name" content="Korea Developer Support Team Blog">
 <meta property="og:description" content="Internet Explorer 모드 페이지? edge:&#x2F;&#x2F;settings&#x2F;defaultBrowser 또는 [설정] &gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 영역은 Internet Explorer Mode 호환성을 제공해야하는 사이트 목록을 로컬로 지정할수 있는 기능입니다.기본적으로 Edge에서 IE의 호환성을">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://kocssds.github.io/2022/04/17/AboutLocalIEMode/2022-04-17-14-09-38.png">
-<meta property="og:image" content="https://kocssds.github.io/2022/04/17/AboutLocalIEMode/2022-04-17-14-14-43.png">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-14-09-38.png">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-14-14-43.png">
 <meta property="article:published_time" content="2022-04-17T05:07:07.000Z">
-<meta property="article:modified_time" content="2022-04-17T05:16:22.620Z">
+<meta property="article:modified_time" content="2022-04-17T05:17:44.500Z">
 <meta property="article:author" content="Korea Developer Support Team">
 <meta property="article:tag" content="Microsoft Edge">
 <meta property="article:tag" content="Chromium">
 <meta property="article:tag" content="IE Mode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kocssds.github.io/2022/04/17/AboutLocalIEMode/2022-04-17-14-09-38.png">
+<meta name="twitter:image" content="https://kocssds.github.io/images/2022-04-17-14-09-38.png">
   
     <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
   
@@ -110,7 +110,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>Internet Explorer 모드 페이지?</strong></p>
-<p>edge://settings/defaultBrowser 또는 [설정] &gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 영역은 Internet Explorer Mode 호환성을 제공해야하는 사이트 목록을 로컬로 지정할수 있는 기능입니다.<br>기본적으로 Edge에서 IE의 호환성을 제공하는 기능을 IE Mode라고 하기 때문에, 아래는 말 그대로 IE Mode로 열릴 페이지 목록을 나타냅니다. 뒤에 설명할 용어와 혼동될 수 있기 때문에, 이하 “로컬 IE Mode 설정” 이라는 용어를 사용하겠습니다.<br> <img src="2022-04-17-14-09-38.png"></p>
+<p>edge://settings/defaultBrowser 또는 [설정] &gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 영역은 Internet Explorer Mode 호환성을 제공해야하는 사이트 목록을 로컬로 지정할수 있는 기능입니다.<br>기본적으로 Edge에서 IE의 호환성을 제공하는 기능을 IE Mode라고 하기 때문에, 아래는 말 그대로 IE Mode로 열릴 페이지 목록을 나타냅니다. 뒤에 설명할 용어와 혼동될 수 있기 때문에, 이하 “로컬 IE Mode 설정” 이라는 용어를 사용하겠습니다.<br> <img src="/images/2022-04-17-14-09-38.png"></p>
 <p>•    로컬 IE Mode 설정 기능이 Edge에 추가된 버전<br>위 Edge 브라우저 기능을 사용하려면 최소 아래의 버전을 충족해야합니다.</p>
 <ul>
 <li>   Windows 10 1909 이후</li>
@@ -128,7 +128,7 @@
 <p><strong>로컬 IE Mode 설정 비활성화 하는 방법</strong></p>
 <p>아래 구성에 따라 사용 안함 옵션을 적용하시면, Edge에서 로컬로 IE Mode 리스트 설정이 불가합니다. 이 설정은 사용자가 변경할 수 없습니다.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[그룹정책 설정 방법]</span><br><span class="line">GP 고유 이름: InternetExplorerIntegrationReloadInIEModeAllowed</span><br><span class="line">GP 이름: 구성되지 않은 사이트를 Internet Explorer 모드로 다시 로드하도록 허용</span><br><span class="line">GP 경로: 관리 템플릿/Microsoft Edge/</span><br><span class="line">- 사용 옵션을 선택하는 경우 로컬에서 IE Mode 리스트를 설정을 허용하도록 합니다.</span><br><span class="line">- 사용 안 함 옵션을 선택하는 경우 로컬 설정을 허용하지 않습니다.</span><br><span class="line"></span><br><span class="line">[레지스트리 적용 방법]</span><br><span class="line">경로: SOFTWARE\Policies\Microsoft\Edge</span><br><span class="line">값 이름: InternetExplorerIntegrationReloadInIEModeAllowed</span><br><span class="line">값 형식: REG_DWORD</span><br><span class="line">- 0 = 사용 안함</span><br><span class="line">- 1 = 사용</span><br></pre></td></tr></table></figure>
-<p>반영 결과입니다. AD에서 관리되고부터 잠금 표시가 나타나고 허용 안 함으로 값이 고정됩니다. 갱신을 위해 브라우저 재시작이 필요합니다.<br> <img src="2022-04-17-14-14-43.png"></p>
+<p>반영 결과입니다. AD에서 관리되고부터 잠금 표시가 나타나고 허용 안 함으로 값이 고정됩니다. 갱신을 위해 브라우저 재시작이 필요합니다.<br> <img src="/images/2022-04-17-14-14-43.png"></p>
 <p>Edge 정책 갱신이 필요한 경우, edge://policy에서 바로 새로고침이 가능합니다. 아래 적용된 정책 목록에 InternetExplorerIntegrationReloadInIEModeAllowed가 조회되는지 확인합니다.</p>
 <p>로컬 사이트 목록에 대한 상세 내용은 아래 링크 참조 부탁드립니다.</p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/deployedge/edge-ie-mode-local-site-list">Configure local site list for Internet Explorer (IE) mode</a></p>
