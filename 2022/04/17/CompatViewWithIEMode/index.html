@@ -4,17 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>태그: Azure DevOps+Azure Boards | Korea Developer Support Team Blog</title>
+  <title>Microsoft Edge IE 모드를 설정했을 때 특정사이트가 IE11에서 별도로 호환성 보기 설정을 해야 열리는 문제 | Korea Developer Support Team Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="개발기술지원팀의 블로그입니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Korea Developer Support Team Blog">
-<meta property="og:url" content="https://kocssds.github.io/tags/Azure-DevOps/Azure-Boards/index.html">
+  <meta name="description" content="Microsoft Edge에서 IE 모드 설정했을 때 일부 특정사이트는 IE11에서 호환성 보기 설정을 별도로 추가해야 열리는 문제가 발생합니다. 하지만, IE11에서 호환성 보기 설정을 추가적으로 하는 것보다는 IE Mode에서의 구성을 권고합니다. 해당 방법은 아래의 과정을 검토하실 수 있습니다.    IE 모드 사이트 구성 시에 아래와 같이 (예를 들">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Microsoft Edge IE 모드를 설정했을 때 특정사이트가 IE11에서 별도로 호환성 보기 설정을 해야 열리는 문제">
+<meta property="og:url" content="https://kocssds.github.io/2022/04/17/CompatViewWithIEMode/index.html">
 <meta property="og:site_name" content="Korea Developer Support Team Blog">
-<meta property="og:description" content="개발기술지원팀의 블로그입니다.">
+<meta property="og:description" content="Microsoft Edge에서 IE 모드 설정했을 때 일부 특정사이트는 IE11에서 호환성 보기 설정을 별도로 추가해야 열리는 문제가 발생합니다. 하지만, IE11에서 호환성 보기 설정을 추가적으로 하는 것보다는 IE Mode에서의 구성을 권고합니다. 해당 방법은 아래의 과정을 검토하실 수 있습니다.    IE 모드 사이트 구성 시에 아래와 같이 (예를 들">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-13-40-18.png">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-13-40-36.png">
+<meta property="article:published_time" content="2022-04-17T04:32:15.000Z">
+<meta property="article:modified_time" content="2022-04-17T04:48:39.383Z">
 <meta property="article:author" content="Korea Developer Support Team">
+<meta property="article:tag" content="Microsoft Edge">
+<meta property="article:tag" content="Chromium">
+<meta property="article:tag" content="IE Mode">
+<meta property="article:tag" content="Compatibility View">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kocssds.github.io/images/2022-04-17-13-40-18.png">
   
     <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
   
@@ -32,7 +41,7 @@
   
   
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/.css" src="/.js">
+<link rel="stylesheet" href="/.css">
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -77,39 +86,70 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-CompatViewWithIEMode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/12/21/NotificationForAzureBoards/" class="archive-article-date">
-  <time datetime="2021-12-21T00:59:18.000Z" itemprop="datePublished">2021 / 12 / 21</time>
-</a>
-      
+      <header class="article-header-single">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/12/21/NotificationForAzureBoards/">Azure Boards 내에서 특정 이메일로의 Notification 방법</a>
+    <h1 class="article-title" itemprop="name">
+      Microsoft Edge IE 모드를 설정했을 때 특정사이트가 IE11에서 별도로 호환성 보기 설정을 해야 열리는 문제
     </h1>
   
 
-    </header>
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="/2022/04/17/CompatViewWithIEMode/" class="article-date-single">
+  <time datetime="2022-04-17T04:32:15.000Z" itemprop="datePublished">2022-04-17</time>
+</a>
+        
+        <a data-url="https://kocssds.github.io/2022/04/17/CompatViewWithIEMode/" data-id="cl22t60860000looyb8ko2wwq" class="article-share-link">공유</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Microsoft Edge에서 IE 모드 설정했을 때 일부 특정사이트는 IE11에서 호환성 보기 설정을 별도로 추가해야 열리는 문제가 발생합니다. 하지만, IE11에서 호환성 보기 설정을 추가적으로 하는 것보다는 IE Mode에서의 구성을 권고합니다. 해당 방법은 아래의 과정을 검토하실 수 있습니다.  </p>
+<ol>
+<li><p>IE 모드 사이트 구성 시에 아래와 같이 (예를 들어) IE7 Enterprise Mode로 설정하고, XML파일을 새로 저장합니다.<br><img src="/images/2022-04-17-13-40-18.png"></p>
+</li>
+<li><p>호환성 보기 페이지에서 해당 IE모드 XML파일이 곧바로 적용될 수 있도록 “업데이트 강제 적용” 버튼을 클릭합니다.<br>(edge://compat/enterprise)<br><img src="/images/2022-04-17-13-40-36.png"></p>
+</li>
+<li><p>   위와 같이 적용이 완료된 후, 해당 도메인에 접속했을 때 <u>IE11의 호환성 보기 설정에 해당 도메인이 추가되지 않아도</u> 정상적으로 동작됩니다.</p>
+</li>
+</ol>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Compatibility-View/" rel="tag">Compatibility View</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE-Mode/" rel="tag">IE Mode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/17/SessionSwitchNotSupportedInIEMode/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">Microsoft Edge IE 모드에서 세션 분리 안되는 현상</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

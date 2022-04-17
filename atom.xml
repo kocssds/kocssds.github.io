@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-17T04:24:52.195Z</updated>
+  <updated>2022-04-17T04:48:39.383Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Edge IE 모드를 설정했을 때 특정사이트가 IE11에서 별도로 호환성 보기 설정을 해야 열리는 문제</title>
+    <link href="https://kocssds.github.io/2022/04/17/CompatViewWithIEMode/"/>
+    <id>https://kocssds.github.io/2022/04/17/CompatViewWithIEMode/</id>
+    <published>2022-04-17T04:32:15.000Z</published>
+    <updated>2022-04-17T04:48:39.383Z</updated>
+    
+    <content type="html"><![CDATA[<p>Microsoft Edge에서 IE 모드 설정했을 때 일부 특정사이트는 IE11에서 호환성 보기 설정을 별도로 추가해야 열리는 문제가 발생합니다. 하지만, IE11에서 호환성 보기 설정을 추가적으로 하는 것보다는 IE Mode에서의 구성을 권고합니다. 해당 방법은 아래의 과정을 검토하실 수 있습니다.  </p><ol><li><p>IE 모드 사이트 구성 시에 아래와 같이 (예를 들어) IE7 Enterprise Mode로 설정하고, XML파일을 새로 저장합니다.<br><img src="/images/2022-04-17-13-40-18.png"></p></li><li><p>호환성 보기 페이지에서 해당 IE모드 XML파일이 곧바로 적용될 수 있도록 “업데이트 강제 적용” 버튼을 클릭합니다.<br>(edge://compat/enterprise)<br><img src="/images/2022-04-17-13-40-36.png"></p></li><li><p>   위와 같이 적용이 완료된 후, 해당 도메인에 접속했을 때 <u>IE11의 호환성 보기 설정에 해당 도메인이 추가되지 않아도</u> 정상적으로 동작됩니다.</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Microsoft Edge에서 IE 모드 설정했을 때 일부 특정사이트는 IE11에서 호환성 보기 설정을 별도로 추가해야 열리는 문제가 발생합니다. 하지만, IE11에서 호환성 보기 설정을 추가적으로 하는 것보다는 IE Mode에서의 구성을 권고합</summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+    <category term="Compatibility View" scheme="https://kocssds.github.io/tags/Compatibility-View/"/>
+    
+  </entry>
   
   <entry>
     <title>Microsoft Edge IE 모드에서 세션 분리 안되는 현상</title>
