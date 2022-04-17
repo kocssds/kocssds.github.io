@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-17T03:14:37.131Z</updated>
+  <updated>2022-04-17T03:43:56.307Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IE 모드에서 팝업창의 허용에도 불구하고 창이 차단되는 현상</title>
+    <link href="https://kocssds.github.io/2022/04/17/PopUpDialogIssueInIEMode/"/>
+    <id>https://kocssds.github.io/2022/04/17/PopUpDialogIssueInIEMode/</id>
+    <published>2022-04-17T03:39:39.000Z</published>
+    <updated>2022-04-17T03:43:56.307Z</updated>
+    
+    <content type="html"><![CDATA[<p>간혹 Microsoft Edge IE모드를 사용하는 경우 팝업을 허용했음에도 불구하고 지속적으로 팝업창이 차단되는 경우가 발생하는데, <u>이 때에는 Internet Explorer 11의 팝업 차단 사용을 “사용 안함”으로 설정하면 문제가 해결될 수 있습니다.</u> </p><ul><li><p>   문제가 재현되는 도메인이 속해 있는 보안 영역(예를 들어 ‘신뢰할 수 있는 사이트’)의 팝업 차단 사용을 “사용 안 함”으로 설정해 주십시오.</p></li><li><p> 신뢰할 수 있는 사이트 보안 영역의 “사용자 지정 수준”에서 팝업 차단 사용을 사용 안 함으로 설정합니다.<br><img src="/images/2022-04-17-12-41-36.png"></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;간혹 Microsoft Edge IE모드를 사용하는 경우 팝업을 허용했음에도 불구하고 지속적으로 팝업창이 차단되는 경우가 발생하는데, &lt;u&gt;이 때에는 Internet Explorer 11의 팝업 차단 사용을 “사용 안함”으로 설정하면 문제가 해결</summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+    <category term="Popup Dialog" scheme="https://kocssds.github.io/tags/Popup-Dialog/"/>
+    
+  </entry>
   
   <entry>
     <title>Internet Explorer 11 지원 종료 예정에 따른 사전 테스트를 위한 재현 환경을 미리 구축 방법</title>

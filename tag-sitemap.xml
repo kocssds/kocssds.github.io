@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://kocssds.github.io/tags/Popup-Dialog/</loc>
+        <lastmod>2022-04-17T03:43:56.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/IE-Mode/</loc>
+        <lastmod>2022-04-17T03:43:56.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Chromium/</loc>
+        <lastmod>2022-04-17T03:43:56.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Microsoft-Edge/</loc>
+        <lastmod>2022-04-17T03:43:56.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://kocssds.github.io/tags/NotifyDisableIEOptions/</loc>
         <lastmod>2022-04-17T03:14:37.131Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,28 +45,7 @@
     </url>
 
     <url>
-        <loc>https://kocssds.github.io/tags/Chromium/</loc>
-        <lastmod>2022-04-17T03:14:37.131Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kocssds.github.io/tags/Microsoft-Edge/</loc>
-        <lastmod>2022-04-17T03:14:37.131Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kocssds.github.io/tags/Shared-Cookie/</loc>
-        <lastmod>2022-04-17T02:35:50.444Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kocssds.github.io/tags/IE-Mode/</loc>
         <lastmod>2022-04-17T02:35:50.444Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
