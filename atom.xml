@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-16T14:25:21.689Z</updated>
+  <updated>2022-04-17T02:35:50.444Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Edge와 IE Mode 사이에서 쿠키를 공유할 수 있는 방법</title>
+    <link href="https://kocssds.github.io/2022/04/17/SharedCookieWithIEMode/"/>
+    <id>https://kocssds.github.io/2022/04/17/SharedCookieWithIEMode/</id>
+    <published>2022-04-17T01:43:40.000Z</published>
+    <updated>2022-04-17T02:35:50.444Z</updated>
+    
+    <content type="html"><![CDATA[<p>Edge와 IE Mode 사이에서 쿠키를 공유할수 있는 방법을 다음과 같이 소개합니다.<br><u>Enterprise Mode Site List Manager v2 에서 <b>shared-cookie</b>를 설정함에 따라 가능합니다.</u><br><br><br><br><strong>시스템 요구 사항</strong></p><p>Edge버전은 99 버전이후 부터 Microsoft Edge 와 IE Mode 양방향 간에 쿠키를 공유할 수 있습니다. 아래의 Windows 운영체제 목록에서 지원됩니다.</p><pre><code>Windows 업데이트</code></pre><ul><li><p>Windows 11 - KB5010414 이상</p></li><li><p>Windows Server 2022 - KB5010421 이상</p></li><li><p>Windows 10 버전 20H2 - KB5010415 이상</p></li><li><p>Windows 10 버전 21H1 - KB5010415 이상</p></li><li><p>Windows 10 버전 21H2- KB5010415 이상</p><pre><code>Microsoft Edge 버전 99 이상, Enterprise Mode Site List로 구성된 IE Mode 환경</code></pre><br></li></ul><p><strong>구성방법</strong></p><p>Shared-Cookie 값은 현재 Enterprise Mode Site List Manager를 사용해서는 추가하는 것이 불가합니다. 그렇기 때문에 사용자/관리자가 Site List를 Text Editor를 사용하여 직접 편집을 한 후 저장을 해야만 정상적으로 사용이 가능합니다. 참고로 Shared-Cookie 속성은 <code>&lt;site-list version=”??”&gt;</code> 이후에 추가하면 됩니다. 이와 관련해서는 아래 예제를 참조하여 주시기 바랍니다.</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">site-list</span> <span class="attr">version</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">shared-cookie</span> <span class="attr">host</span>=<span class="string">&quot;subdomain.domain.com&quot;</span> <span class="attr">name</span>=<span class="string">&quot;SAMPLE-HOST-COOKIE&quot;</span> <span class="attr">source-engine</span>=<span class="string">&quot;MSEdge&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">shared-cookie</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">shared-cookie</span> <span class="attr">domain</span>=<span class="string">&quot;.contoso.com&quot;</span> <span class="attr">name</span>=<span class="string">&quot;cookie1&quot;</span> <span class="attr">source-engine</span>=<span class="string">&quot;Both&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">shared-cookie</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">shared-cookie</span> <span class="attr">domain</span>=<span class="string">&quot;.contoso.com&quot;</span> <span class="attr">name</span>=<span class="string">&quot;cookie1&quot;</span> <span class="attr">source-engine</span>=<span class="string">&quot;IE11&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">shared-cookie</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">created-by</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tool</span>&gt;</span>EMIESiteListManager<span class="tag">&lt;/<span class="name">tool</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>12.0.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">date-created</span>&gt;</span>11/06/2021 10:14:44<span class="tag">&lt;/<span class="name">date-created</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">created-by</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span> <span class="attr">url</span>=<span class="string">www.microsoft.com</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compat-mode</span>&gt;</span>Default<span class="tag">&lt;/<span class="name">compat-mode</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">open-in</span> <span class="attr">allow-redirect</span>=<span class="string">&quot;true&quot;</span>&gt;</span>IE11<span class="tag">&lt;/<span class="name">open-in</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site-list</span>&gt;</span></span><br></pre></td></tr></table></figure><p>예제를 보시면 Domain 전용 쿠키 및 host 전용 쿠키에 따라 domain 또는 host attritube를 사용할 수 있습니다. 그리고, source-engine은 어디에서 어디로 쿠키가 공유되는 지를 설정합니다. 예를 들어, MSEdge는 MSEdge에서 IE로 쿠키가 공유되며, Both는 양방향으로 공유됩니다.</p><p>** <em><strong>주의</strong></em> **</p><p>  사용자/관리자가 Shared-Cookie를 추가하기 위해 직접 Site List를 편집한 경우 추후에 Site List Manager를 사용하여 해당 Site List XML파일을 덮어 쓰는(Overwrite) 경우 수동으로 추가한 Shared-Cookie 값이 사라지게 됩니다. 그렇기 때문에 반드시 사전에 Backup을 진행한 후 Shared-Cookie 부분만 따로 추가 하거나 지속적으로 수동으로 관리가 필요할 수 있습니다. </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Edge와 IE Mode 사이에서 쿠키를 공유할수 있는 방법을 다음과 같이 소개합니다.&lt;br&gt;&lt;u&gt;Enterprise Mode Site List Manager v2 에서 &lt;b&gt;shared-cookie&lt;/b&gt;를 설정함에 따라 가능합니다.&lt;/u&gt;&lt;b</summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+    <category term="Shared-Cookie" scheme="https://kocssds.github.io/tags/Shared-Cookie/"/>
+    
+  </entry>
   
   <entry>
     <title>로컬 HTM 혹은 HTML파일을 IE모드로 실행 방법</title>
