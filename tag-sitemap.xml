@@ -3,21 +3,28 @@
 
 
     <url>
-        <loc>https://kocssds.github.io/tags/Extensions/</loc>
-        <lastmod>2022-04-17T08:33:24.601Z</lastmod>
+        <loc>https://kocssds.github.io/tags/ExtensionInstallBlocklist/</loc>
+        <lastmod>2022-04-17T09:18:13.417Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Chromium/</loc>
-        <lastmod>2022-04-17T08:33:24.601Z</lastmod>
+        <lastmod>2022-04-17T09:18:13.417Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Microsoft-Edge/</loc>
+        <lastmod>2022-04-17T09:18:13.417Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Extensions/</loc>
         <lastmod>2022-04-17T08:33:24.601Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
