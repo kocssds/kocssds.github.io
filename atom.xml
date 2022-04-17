@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-17T04:48:39.383Z</updated>
+  <updated>2022-04-17T05:16:22.620Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>로컬 IE 모드란?</title>
+    <link href="https://kocssds.github.io/2022/04/17/AboutLocalIEMode/"/>
+    <id>https://kocssds.github.io/2022/04/17/AboutLocalIEMode/</id>
+    <published>2022-04-17T05:07:07.000Z</published>
+    <updated>2022-04-17T05:16:22.620Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Internet Explorer 모드 페이지?</strong></p><p>edge://settings/defaultBrowser 또는 [설정] &gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 영역은 Internet Explorer Mode 호환성을 제공해야하는 사이트 목록을 로컬로 지정할수 있는 기능입니다.<br>기본적으로 Edge에서 IE의 호환성을 제공하는 기능을 IE Mode라고 하기 때문에, 아래는 말 그대로 IE Mode로 열릴 페이지 목록을 나타냅니다. 뒤에 설명할 용어와 혼동될 수 있기 때문에, 이하 “로컬 IE Mode 설정” 이라는 용어를 사용하겠습니다.<br> <img src="2022-04-17-14-09-38.png"></p><p>•    로컬 IE Mode 설정 기능이 Edge에 추가된 버전<br>위 Edge 브라우저 기능을 사용하려면 최소 아래의 버전을 충족해야합니다.</p><ul><li>   Windows 10 1909 이후</li><li>   Windows 10 2004; Windows 10 20H2, Windows 10 21H1 이후</li><li>   Edge 92 (92.0.902.55 이후)<br></li></ul><p><strong>엔터프라이즈 모드 사이트 목록이란?</strong></p><p>엔터프라이즈 모드(Enterprise Mode)는 기존IE 11에서 구 IE 버전으로 개발된 페이지 간의 호환성을 위해 제공되던 기능입니다. 이 엔터프라이즈 모드 기능에서 구성한 목록을 Enterprise Mode Site List라고 합니다.<br>Internet Explorer Mode(이하 IE Mode)는 현재 IE11 EOS를 앞두고 IE를 대체하기 위해 Edge에서 제공되는 기능입니다. 호환성 문제로 IE에서 열리던 페이지를 Edge에서 열어야 하는 경우, IE Mode를 적용하여 Edge에서도 해당 페이지를 조회할 수 있습니다. </p><p>Edge의 IE Mode 호환성을 구성하기 위한 목록 설정 파일로, 위 Enterprise Mode Site List를 사용합니다. IE11에서 사용하던 엔터프라이즈 모드 설정을 Edge IE Mode에서 그대로 가져올 수 있게 하기 위한 목적도 포함되어 있습니다.<br>Site List는 xml 파일로 되어 있습니다. 스키마를 직접 작성할 수도 있지만, 아래 두가지 기능으로 Site List xml 파일을 생성/관리할 수 있습니다.</p><ul><li>   Enterprise Mode Site List Manager(v.2)<br>IE 11에서부터 사용하던 툴입니다. 때문에 일부 IE11과 관련된 deprecated 옵션들이 남아 있습니다. 생성되는 xml 스키마는 동일하게 때문에 Edge IE Mode에서 사용하실 수 있습니다.</li><li>   Edge in-browser Enterprise Site List Manager<br>위의 툴과 동일한 Edge 내장 기능입니다. 별도의 설치 없이 edge://compat/SiteListManager url로 접근 가능합니다. Edge 89 버전 이후부터 제공됩니다.</li></ul><p>요약드리면, IE Mode에서 열릴 페이지를 구성하는 목록 파일을 Enterprise Mode Site List라 지칭합니다.<br>Site List를 구성하지 않고 (위에서 설명드린 바와 같이) 로컬에서 페이지 목록을 추가할수 있는 기능이 제공되나, Site List 배포전 간이 테스트를 위한 용도로 세부 동작이나 옵션이 다를 수 있는점 참고 부탁드립니다.<br><br></p><p><strong>로컬 IE Mode 설정 비활성화 하는 방법</strong></p><p>아래 구성에 따라 사용 안함 옵션을 적용하시면, Edge에서 로컬로 IE Mode 리스트 설정이 불가합니다. 이 설정은 사용자가 변경할 수 없습니다.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[그룹정책 설정 방법]</span><br><span class="line">GP 고유 이름: InternetExplorerIntegrationReloadInIEModeAllowed</span><br><span class="line">GP 이름: 구성되지 않은 사이트를 Internet Explorer 모드로 다시 로드하도록 허용</span><br><span class="line">GP 경로: 관리 템플릿/Microsoft Edge/</span><br><span class="line">- 사용 옵션을 선택하는 경우 로컬에서 IE Mode 리스트를 설정을 허용하도록 합니다.</span><br><span class="line">- 사용 안 함 옵션을 선택하는 경우 로컬 설정을 허용하지 않습니다.</span><br><span class="line"></span><br><span class="line">[레지스트리 적용 방법]</span><br><span class="line">경로: SOFTWARE\Policies\Microsoft\Edge</span><br><span class="line">값 이름: InternetExplorerIntegrationReloadInIEModeAllowed</span><br><span class="line">값 형식: REG_DWORD</span><br><span class="line">- 0 = 사용 안함</span><br><span class="line">- 1 = 사용</span><br></pre></td></tr></table></figure><p>반영 결과입니다. AD에서 관리되고부터 잠금 표시가 나타나고 허용 안 함으로 값이 고정됩니다. 갱신을 위해 브라우저 재시작이 필요합니다.<br> <img src="2022-04-17-14-14-43.png"></p><p>Edge 정책 갱신이 필요한 경우, edge://policy에서 바로 새로고침이 가능합니다. 아래 적용된 정책 목록에 InternetExplorerIntegrationReloadInIEModeAllowed가 조회되는지 확인합니다.</p><p>로컬 사이트 목록에 대한 상세 내용은 아래 링크 참조 부탁드립니다.</p><p><a href="https://docs.microsoft.com/en-us/deployedge/edge-ie-mode-local-site-list">Configure local site list for Internet Explorer (IE) mode</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Internet Explorer 모드 페이지?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;edge://settings/defaultBrowser 또는 [설정] &amp;gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 </summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+  </entry>
   
   <entry>
     <title>Microsoft Edge IE 모드를 설정했을 때 특정사이트가 IE11에서 별도로 호환성 보기 설정을 해야 열리는 문제</title>

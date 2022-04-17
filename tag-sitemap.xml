@@ -3,28 +3,28 @@
 
 
     <url>
-        <loc>https://kocssds.github.io/tags/Compatibility-View/</loc>
-        <lastmod>2022-04-17T04:48:39.383Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kocssds.github.io/tags/IE-Mode/</loc>
-        <lastmod>2022-04-17T04:48:39.383Z</lastmod>
+        <lastmod>2022-04-17T05:16:22.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Chromium/</loc>
-        <lastmod>2022-04-17T04:48:39.383Z</lastmod>
+        <lastmod>2022-04-17T05:16:22.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Microsoft-Edge/</loc>
+        <lastmod>2022-04-17T05:16:22.620Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Compatibility-View/</loc>
         <lastmod>2022-04-17T04:48:39.383Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
