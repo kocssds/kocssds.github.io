@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-14-09-38.png">
 <meta property="og:image" content="https://kocssds.github.io/images/2022-04-17-14-14-43.png">
 <meta property="article:published_time" content="2022-04-17T05:07:07.000Z">
-<meta property="article:modified_time" content="2022-04-17T05:17:44.500Z">
+<meta property="article:modified_time" content="2022-04-17T05:34:11.390Z">
 <meta property="article:author" content="Korea Developer Support Team">
 <meta property="article:tag" content="Microsoft Edge">
 <meta property="article:tag" content="Chromium">
@@ -110,8 +110,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>Internet Explorer 모드 페이지?</strong></p>
-<p>edge://settings/defaultBrowser 또는 [설정] &gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 영역은 Internet Explorer Mode 호환성을 제공해야하는 사이트 목록을 로컬로 지정할수 있는 기능입니다.<br>기본적으로 Edge에서 IE의 호환성을 제공하는 기능을 IE Mode라고 하기 때문에, 아래는 말 그대로 IE Mode로 열릴 페이지 목록을 나타냅니다. 뒤에 설명할 용어와 혼동될 수 있기 때문에, 이하 “로컬 IE Mode 설정” 이라는 용어를 사용하겠습니다.<br> <img src="/images/2022-04-17-14-09-38.png"></p>
-<p>•    로컬 IE Mode 설정 기능이 Edge에 추가된 버전<br>위 Edge 브라우저 기능을 사용하려면 최소 아래의 버전을 충족해야합니다.</p>
+<p><u>edge://settings/defaultBrowser</u> 또는 [설정] &gt; [기본 브라우저 탭]에서 보이는 Internet Explorer 모드 페이지 영역은 Internet Explorer Mode 호환성을 제공해야하는 사이트 목록을 로컬로 지정할수 있는 기능입니다.<br>기본적으로 Edge에서 IE의 호환성을 제공하는 기능을 IE Mode라고 하기 때문에, 아래는 말 그대로 IE Mode로 열릴 페이지 목록을 나타냅니다. 뒤에 설명할 용어와 혼동될 수 있기 때문에, 이하 “로컬 IE Mode 설정” 이라는 용어를 사용하겠습니다.<br> <img src="/images/2022-04-17-14-09-38.png"></p>
+<p><em><strong>로컬 IE Mode 설정 기능이 Edge에 추가된 버전</strong></em></p>
+<p>앞서서 언급한 Edge 브라우저 기능을 사용하려면 최소 아래의 버전을 충족해야합니다.</p>
 <ul>
 <li>   Windows 10 1909 이후</li>
 <li>   Windows 10 2004; Windows 10 20H2, Windows 10 21H1 이후</li>
@@ -122,7 +123,7 @@
 <p>Edge의 IE Mode 호환성을 구성하기 위한 목록 설정 파일로, 위 Enterprise Mode Site List를 사용합니다. IE11에서 사용하던 엔터프라이즈 모드 설정을 Edge IE Mode에서 그대로 가져올 수 있게 하기 위한 목적도 포함되어 있습니다.<br>Site List는 xml 파일로 되어 있습니다. 스키마를 직접 작성할 수도 있지만, 아래 두가지 기능으로 Site List xml 파일을 생성/관리할 수 있습니다.</p>
 <ul>
 <li>   Enterprise Mode Site List Manager(v.2)<br>IE 11에서부터 사용하던 툴입니다. 때문에 일부 IE11과 관련된 deprecated 옵션들이 남아 있습니다. 생성되는 xml 스키마는 동일하게 때문에 Edge IE Mode에서 사용하실 수 있습니다.</li>
-<li>   Edge in-browser Enterprise Site List Manager<br>위의 툴과 동일한 Edge 내장 기능입니다. 별도의 설치 없이 edge://compat/SiteListManager url로 접근 가능합니다. Edge 89 버전 이후부터 제공됩니다.</li>
+<li>   Edge in-browser Enterprise Site List Manager<br>위의 툴과 동일한 Edge 내장 기능입니다. 별도의 설치 없이 <u>edge://compat/SiteListManager</u> url로 접근 가능합니다. Edge 89 버전 이후부터 제공됩니다.</li>
 </ul>
 <p>요약드리면, IE Mode에서 열릴 페이지를 구성하는 목록 파일을 Enterprise Mode Site List라 지칭합니다.<br>Site List를 구성하지 않고 (위에서 설명드린 바와 같이) 로컬에서 페이지 목록을 추가할수 있는 기능이 제공되나, Site List 배포전 간이 테스트를 위한 용도로 세부 동작이나 옵션이 다를 수 있는점 참고 부탁드립니다.<br><br></p>
 <p><strong>로컬 IE Mode 설정 비활성화 하는 방법</strong></p>
