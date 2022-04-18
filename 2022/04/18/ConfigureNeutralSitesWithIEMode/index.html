@@ -4,17 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>태그: QuickStart+Linux | Korea Developer Support Team Blog</title>
+  <title>Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패 | Korea Developer Support Team Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="개발기술지원팀의 블로그입니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Korea Developer Support Team Blog">
-<meta property="og:url" content="https://kocssds.github.io/tags/QuickStart/Linux/index.html">
+  <meta name="description" content="Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패를 경함한다면, 중립사이트 구성에 대해서 고려해보실 수 있습니다.  IE모드 구성시 SSO와의 원활한 통신을 위해서 다음을 확인해 주시기 바랍니다.  IE 모드 사이트 리스트에 SSO 관련 도메인에 대한 처리(중립 사이트">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패">
+<meta property="og:url" content="https://kocssds.github.io/2022/04/18/ConfigureNeutralSitesWithIEMode/index.html">
 <meta property="og:site_name" content="Korea Developer Support Team Blog">
-<meta property="og:description" content="개발기술지원팀의 블로그입니다.">
+<meta property="og:description" content="Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패를 경함한다면, 중립사이트 구성에 대해서 고려해보실 수 있습니다.  IE모드 구성시 SSO와의 원활한 통신을 위해서 다음을 확인해 주시기 바랍니다.  IE 모드 사이트 리스트에 SSO 관련 도메인에 대한 처리(중립 사이트">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://kocssds.github.io/images/2022-04-18-10-55-27.png">
+<meta property="article:published_time" content="2022-04-18T01:37:46.000Z">
+<meta property="article:modified_time" content="2022-04-18T02:02:17.744Z">
 <meta property="article:author" content="Korea Developer Support Team">
+<meta property="article:tag" content="Microsoft Edge">
+<meta property="article:tag" content="Chromium">
+<meta property="article:tag" content="IE Mode">
+<meta property="article:tag" content="Neutral Sites">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kocssds.github.io/images/2022-04-18-10-55-27.png">
   
     <link rel="alternate" href="/atom.xml" title="Korea Developer Support Team Blog" type="application/atom+xml">
   
@@ -32,7 +40,7 @@
   
   
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/.css" src="/.js">
+<link rel="stylesheet" href="/.css">
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -77,58 +85,84 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-ConfigureNeutralSitesWithIEMode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
     
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="/2022/04/18/ConfigureNeutralSitesWithIEMode/" class="article-date-single">
+  <time datetime="2022-04-18T01:37:46.000Z" itemprop="datePublished">2022-04-18</time>
+</a>
+        
+        <a data-url="https://kocssds.github.io/2022/04/18/ConfigureNeutralSitesWithIEMode/" data-id="cl242o5tr0000s8oydido3j9a" class="article-share-link">공유</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패를 경함한다면, 중립사이트 구성에 대해서 고려해보실 수 있습니다. </p>
+<p>IE모드 구성시 SSO와의 원활한 통신을 위해서 다음을 확인해 주시기 바랍니다.</p>
+<hr>
+<p><strong>IE 모드 사이트 리스트에 SSO 관련 도메인에 대한 처리(중립 사이트 구성)</strong></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/deployedge/edge-ie-mode-sitelist#configure-neutral-sites">중립 사이트(Neutral Site) 구성</a></p>
+<p>IE 모드가 제대로 작동하려면 인증/SSO(Single Sign-On) 서버를 중립 사이트로 명시적으로 구성해야 합니다. 그렇지 않으면 IE 모드 페이지가 Microsoft Edge로 리디렉션을 시도하여 인증에 실패할 수 있습니다.<br>중립 사이트는 탐색이 시작된 브라우저(Microsoft Edge 또는 IE 모드)를 사용합니다. 중립 사이트를 구성하면 최신 및 기존 인증 서버를 사용하는 모든 응용 프로그램이 계속 작동합니다.<br>엔터프라이즈 모드 사이트 목록 관리자 도구에서 열기 드롭다운을 ‘None’으로 설정하거나 사이트 목록 XML을 직접 업데이트하여 중립 사이트를 구성할 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>엔터프라이즈 모드 사이트 목록 관리자 도구에서 설정</li>
+</ul>
+<p> <img src="/images/2022-04-18-10-55-27.png"></p>
+<ul>
+<li>XML 직접 수정<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">site</span> <span class="attr">url</span>=<span class="string">&quot;login.my-domain.com&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">open-in</span>&gt;</span>None<span class="tag">&lt;/<span class="name">open-in</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br></pre></td></tr></table></figure>
+그러므로, 아래와 같은 고려사항이 있을 수 있습니다. </li>
+</ul>
+<ol>
+<li>   이와 같이 IE 모드를 구성하는 과정에서 <u>SSO 인증과 같은 도메인에 경우 중립 사이트(Neutral Site)로 구성</u>이 되어 있어야 하며, </li>
+<li>   필요에 따라 추가적으로 필요 시 Cookie가 Edge에서 IE 모드로 공유될 수 있도록 <u><a href="https://kocssds.github.io/2022/04/17/SharedCookieWithIEMode/">Shared-Cookie</a>를 구성</u>해야 할 수도 있습니다.</li>
+</ol>
+<hr>
+<p><strong>[참고 - 중립 사이트 구성 ]</strong></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/deployedge/edge-ie-mode-sitelist#configure-neutral-sites">엔터프라이즈 사이트 구성 전략</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/internet-explorer/ie11-deploy-guide/review-neutral-sites-with-site-list-manager">엔터프라이즈 모드 사이트 목록 관리자를 사용하여 Internet Explorer 모드에 대한 중립 사이트 검토</a></p>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
+        <div class="article-disclaimer">
+        
+          <p>※본 정보의 내용(첨부문서, 링크처 등을 포함)은 작성일 현재이며, 예고없이 변경될 수 있습니다.</p>
+        
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/27/DeployAppToLinuxVM/" class="archive-article-date">
-  <time datetime="2021-07-27T12:37:58.000Z" itemprop="datePublished">2021 / 7 / 27</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/27/DeployAppToLinuxVM/">Azure DevOps를 이용하여 Spring Boot 앱을 Linux VM에 배포하기</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/09/27/DeployAppUsingDeployGroups/" class="archive-article-date">
-  <time datetime="2021-09-27T00:47:05.000Z" itemprop="datePublished">2021 / 9 / 27</time>
-</a>
+    </div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/09/27/DeployAppUsingDeployGroups/">Azure DevOps Service가 제공하는 Deployment Groups를 이용하여 Linux 머신에 Spring-Boot App을 배포하기</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE-Mode/" rel="tag">IE Mode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neutral-Sites/" rel="tag">Neutral Sites</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/17/ExtensionInstallBlocklistInEdge/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">Microsoft Edge에서 제공하는 &#39;확장 기능을 사용하여 브라우저 개인 설정&#39; 페이지(edge://extensions/)에서 &#39;압축 풀린 파일 로드&#39;를 클릭했을 때 디렉터리 선택 창이 표시 안되는 이슈</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

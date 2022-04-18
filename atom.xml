@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-04-17T09:18:13.417Z</updated>
+  <updated>2022-04-18T02:02:17.744Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패</title>
+    <link href="https://kocssds.github.io/2022/04/18/ConfigureNeutralSitesWithIEMode/"/>
+    <id>https://kocssds.github.io/2022/04/18/ConfigureNeutralSitesWithIEMode/</id>
+    <published>2022-04-18T01:37:46.000Z</published>
+    <updated>2022-04-18T02:02:17.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패를 경함한다면, 중립사이트 구성에 대해서 고려해보실 수 있습니다. </p><p>IE모드 구성시 SSO와의 원활한 통신을 위해서 다음을 확인해 주시기 바랍니다.</p><hr><p><strong>IE 모드 사이트 리스트에 SSO 관련 도메인에 대한 처리(중립 사이트 구성)</strong></p><p><a href="https://docs.microsoft.com/ko-kr/deployedge/edge-ie-mode-sitelist#configure-neutral-sites">중립 사이트(Neutral Site) 구성</a></p><p>IE 모드가 제대로 작동하려면 인증/SSO(Single Sign-On) 서버를 중립 사이트로 명시적으로 구성해야 합니다. 그렇지 않으면 IE 모드 페이지가 Microsoft Edge로 리디렉션을 시도하여 인증에 실패할 수 있습니다.<br>중립 사이트는 탐색이 시작된 브라우저(Microsoft Edge 또는 IE 모드)를 사용합니다. 중립 사이트를 구성하면 최신 및 기존 인증 서버를 사용하는 모든 응용 프로그램이 계속 작동합니다.<br>엔터프라이즈 모드 사이트 목록 관리자 도구에서 열기 드롭다운을 ‘None’으로 설정하거나 사이트 목록 XML을 직접 업데이트하여 중립 사이트를 구성할 수 있습니다.</p><p><strong>예시</strong></p><ul><li>엔터프라이즈 모드 사이트 목록 관리자 도구에서 설정</li></ul><p> <img src="/images/2022-04-18-10-55-27.png"></p><ul><li>XML 직접 수정<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">site</span> <span class="attr">url</span>=<span class="string">&quot;login.my-domain.com&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">open-in</span>&gt;</span>None<span class="tag">&lt;/<span class="name">open-in</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br></pre></td></tr></table></figure>그러므로, 아래와 같은 고려사항이 있을 수 있습니다. </li></ul><ol><li>   이와 같이 IE 모드를 구성하는 과정에서 <u>SSO 인증과 같은 도메인에 경우 중립 사이트(Neutral Site)로 구성</u>이 되어 있어야 하며, </li><li>   필요에 따라 추가적으로 필요 시 Cookie가 Edge에서 IE 모드로 공유될 수 있도록 <u><a href="https://kocssds.github.io/2022/04/17/SharedCookieWithIEMode/">Shared-Cookie</a>를 구성</u>해야 할 수도 있습니다.</li></ol><hr><p><strong>[참고 - 중립 사이트 구성 ]</strong></p><p><a href="https://docs.microsoft.com/ko-kr/deployedge/edge-ie-mode-sitelist#configure-neutral-sites">엔터프라이즈 사이트 구성 전략</a></p><p><a href="https://docs.microsoft.com/ko-kr/internet-explorer/ie11-deploy-guide/review-neutral-sites-with-site-list-manager">엔터프라이즈 모드 사이트 목록 관리자를 사용하여 Internet Explorer 모드에 대한 중립 사이트 검토</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패를 경함한다면, 중립사이트 구성에 대해서 고려해보실 수 있습니다. &lt;/p&gt;
+&lt;p&gt;IE모드 구성시 SSO와의 원</summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+    <category term="Neutral Sites" scheme="https://kocssds.github.io/tags/Neutral-Sites/"/>
+    
+  </entry>
   
   <entry>
     <title>Microsoft Edge에서 제공하는 &#39;확장 기능을 사용하여 브라우저 개인 설정&#39; 페이지(edge://extensions/)에서 &#39;압축 풀린 파일 로드&#39;를 클릭했을 때 디렉터리 선택 창이 표시 안되는 이슈</title>
@@ -521,33 +550,6 @@
     <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
     <category term="VMSS" scheme="https://kocssds.github.io/tags/VMSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Azure DevOps를 이용하여 Spring Boot 앱을 Linux VM에 배포하기</title>
-    <link href="https://kocssds.github.io/2021/07/27/DeployAppToLinuxVM/"/>
-    <id>https://kocssds.github.io/2021/07/27/DeployAppToLinuxVM/</id>
-    <published>2021-07-27T12:37:58.000Z</published>
-    <updated>2021-07-27T12:51:21.169Z</updated>
-    
-    <content type="html"><![CDATA[<p>다음은 Azure DevOps Pipeline을 이용하여 Spring Boot App을 Linux VM에 배포하는 시나리오의 예제입니다. Linux VM은 Azure DevOps의 Environments에 등록하여 구성합니다.</p><h3 id="Azure-환경에서-Linux-VM-생성"><a href="#Azure-환경에서-Linux-VM-생성" class="headerlink" title="Azure 환경에서 Linux VM 생성"></a><strong>Azure 환경에서 Linux VM 생성</strong></h3><ol><li>   Azure 포털에 로그온 합니다. </li><li>   좌측 메뉴에서 Create a resource에서 Virtual Machine을 생성합니다. </li><li>   Resource Group, Region그리고, Virtual Machine Name을 입력합니다. </li><li>   Image는 Ubuntu Server 18.04 LTS를 선택합니다. </li><li>   Inbound port rules에서 SSH(22) 포트를 오픈합니다. </li><li>   Review+Create를 통해 Linux VM을 생성합니다. </li><li>   생성시에 SSH key (.pem 파일)을 download 하는 데, 적당한 local folder에 저장합니다. 해당 키를 가지고, 해당 VM에 SSH로 접근할 수 있습니다. </li></ol><h3 id="Azure-DevOps-Repo의-구성"><a href="#Azure-DevOps-Repo의-구성" class="headerlink" title="Azure DevOps Repo의 구성"></a><strong>Azure DevOps Repo의 구성</strong></h3><ol><li>   Azure DevOps 포털에 로그온 합니다.</li><li>   New Project를 선택하여 새로운 Project를 생성합니다. </li><li>   생성된 Project로 들어가서 좌측의 Repos메뉴를 선택합니다. </li><li>   이후 Import a Repository 부분에서 사용하고자 하는 Spring Boot 예제를 import 하여 구성합니다. (예, <a href="https://github.com/spring-guides/gs-spring-boot.git">https://github.com/spring-guides/gs-spring-boot.git</a>  )</li></ol><h3 id="Azure-DevOps의-Environments에-Linux-VM-추가"><a href="#Azure-DevOps의-Environments에-Linux-VM-추가" class="headerlink" title="Azure DevOps의 Environments에 Linux VM 추가"></a><strong>Azure DevOps의 Environments에 Linux VM 추가</strong></h3><ol><li>   Azure DevOps 포털에 로그온 합니다. </li><li>   기 생성된 Project의 좌측 메뉴에서 Pipelines 하위의 Environments를 선택합니다. </li><li>   New environment를 선택합니다. </li><li>   New environment에서 Name(예, “linuxVM”)을 입력하여 Resource는 Virtual Machines를 선택합니다. </li><li>   Virtual machine resource에서 Provider는 Generic provider를 선택하고, OS는 Linux를 선택한 후 Registration script를 copy 합니다.</li><li>   앞서서 생성한 Linux VM에 SSH로 로그온 합니다. </li><li>   5번에서 copy 한 script를 paste 하여 실행합니다. </li><li>   정상적으로 script가 실행이 되었다면, Azure DevOps Environments에 4번에서 입력한 Name (예, “linuxVM”)으로 등록이 됩니다.</li><li>   추가적으로 SSH로 VM에 로그온 된 상태에서 “/lib/artifacts/” 폴더를 생성합니다. (해당 폴더는 Azure Pipeline을 통해서 배포된 Artifacts (jar 파일)를 copy 할 대상 폴더로 사용할 예정입니다.)</li><li>   Spring Boot App실행을 위해 Java Runtime Environment(JRE)를 설치합니다.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y default-jre</span><br></pre></td></tr></table></figure></li></ol><h3 id="Linux-VM에서-추가-Port-오픈"><a href="#Linux-VM에서-추가-Port-오픈" class="headerlink" title="Linux VM에서 추가 Port 오픈"></a><strong>Linux VM에서 추가 Port 오픈</strong></h3><ol><li>   Azure 포털에서 이전 단계에서 생성한 VM 환경으로 들어갑니다.</li><li>   Settings의 Networking메뉴를 선택하고, 이후 Add Inbound Port Rule을 선택합니다.</li><li>   Source Port range는 “*”, Destination Port는 “8080”, Source 와 Destination을 둘 다 Any로 선택하고, TCP에 대해서 “Allow”로써 추가합니다.</li><li>   이후 TCP 8080 포트가 오픈 됩니다.</li></ol><h3 id="Azure-Pipeline의-구성"><a href="#Azure-Pipeline의-구성" class="headerlink" title="Azure Pipeline의 구성"></a><strong>Azure Pipeline의 구성</strong></h3><ol><li>   Environments에 Linux VM이 추가가 되었다면 다시 pipelines에서 New Pipeline을 선택합니다. </li><li>   Azure Repos Git을 선택하여 이전 단계에서 구성한 Repo를 선택합니다. </li><li>   Configure your pipeline 단계에서는 Repo에 구성된 소스를 컴파일하기 위해 Maven (build your java project and run tests with Apache Maven)을 선택합니다. </li><li>   프로젝트 내에 azure-pipelines.yml 파일이 자동 생성되고, 아래와 같이 내용을 추가합니다.<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">trigger:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">pool:</span></span><br><span class="line">  <span class="attr">vmImage:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">stage:</span> <span class="string">Build</span></span><br><span class="line">    <span class="attr">displayName:</span> <span class="string">Build</span> <span class="string">Stage</span></span><br><span class="line">    <span class="attr">jobs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">job:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">displayName:</span> <span class="string">Build</span> <span class="string">Maven</span> <span class="string">Project</span></span><br><span class="line">        <span class="attr">steps:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">task:</span> <span class="string">Maven@3</span></span><br><span class="line">            <span class="attr">displayName:</span> <span class="string">&#x27;Maven Package&#x27;</span></span><br><span class="line">            <span class="attr">inputs:</span></span><br><span class="line">              <span class="attr">mavenPomFile:</span> <span class="string">&#x27;complete/pom.xml&#x27;</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">task:</span> <span class="string">CopyFiles@2</span></span><br><span class="line">            <span class="attr">displayName:</span> <span class="string">&#x27;Copy Files to artifact staging directory&#x27;</span></span><br><span class="line">            <span class="attr">inputs:</span></span><br><span class="line">              <span class="attr">SourceFolder:</span> <span class="string">&#x27;$(System.DefaultWorkingDirectory)&#x27;</span></span><br><span class="line">              <span class="attr">Contents:</span> <span class="string">&#x27;**/target/*.?(war|jar)&#x27;</span></span><br><span class="line">              <span class="attr">TargetFolder:</span> <span class="string">$(Build.ArtifactStagingDirectory)</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">upload:</span> <span class="string">$(Build.ArtifactStagingDirectory)</span></span><br><span class="line">            <span class="attr">artifact:</span> <span class="string">drop</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">stage:</span> <span class="string">deploy</span></span><br><span class="line">    <span class="attr">jobs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">deployment:</span> <span class="string">DeployWeb</span></span><br><span class="line">      <span class="attr">displayName:</span> <span class="string">deploy</span> <span class="string">Web</span> <span class="string">App</span></span><br><span class="line">      <span class="attr">pool:</span></span><br><span class="line">        <span class="attr">vmImage:</span> <span class="string">&#x27;Ubuntu-latest&#x27;</span></span><br><span class="line">      <span class="comment"># creates an environment if it doesn&#x27;t exist</span></span><br><span class="line">      <span class="attr">environment:</span> </span><br><span class="line">       <span class="attr">name:</span> <span class="string">&#x27;linuxVM&#x27;</span></span><br><span class="line">       <span class="attr">resourceType:</span> <span class="string">VirtualMachine</span></span><br><span class="line">      <span class="attr">strategy:</span>        </span><br><span class="line">        <span class="attr">runOnce:</span></span><br><span class="line">          <span class="attr">deploy:</span></span><br><span class="line">            <span class="attr">steps:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">                sudo cp $(Pipeline.Workspace)/drop/**/target/*.jar /lib/artifacts/</span></span><br><span class="line"><span class="string">                sudo java -jar /lib/artifacts/*.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span></span><br></pre></td></tr></table></figure></li><li>   Run 합니다. </li><li>   정상적으로 Azure Pipeline이 처리가 되었다면, Linux VM의 Public Ip를 통해 실행 중인 Spring Boot App을 접근할 수 있습니다. </li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;다음은 Azure DevOps Pipeline을 이용하여 Spring Boot App을 Linux VM에 배포하는 시나리오의 예제입니다. Linux VM은 Azure DevOps의 Environments에 등록하여 구성합니다.&lt;/p&gt;
-&lt;h3 id</summary>
-      
-    
-    
-    
-    
-    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
-    
-    <category term="Linux" scheme="https://kocssds.github.io/tags/Linux/"/>
-    
-    <category term="QuickStart" scheme="https://kocssds.github.io/tags/QuickStart/"/>
     
   </entry>
   
