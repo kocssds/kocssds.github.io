@@ -3,28 +3,35 @@
 
 
     <url>
-        <loc>https://kocssds.github.io/tags/Neutral-Sites/</loc>
-        <lastmod>2022-04-18T02:02:17.744Z</lastmod>
+        <loc>https://kocssds.github.io/tags/EOS/</loc>
+        <lastmod>2022-04-20T03:16:55.183Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/IE-Mode/</loc>
-        <lastmod>2022-04-18T02:02:17.744Z</lastmod>
+        <lastmod>2022-04-20T03:16:55.183Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Chromium/</loc>
-        <lastmod>2022-04-18T02:02:17.744Z</lastmod>
+        <lastmod>2022-04-20T03:16:55.183Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kocssds.github.io/tags/Microsoft-Edge/</loc>
+        <lastmod>2022-04-20T03:16:55.183Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kocssds.github.io/tags/Neutral-Sites/</loc>
         <lastmod>2022-04-18T02:02:17.744Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

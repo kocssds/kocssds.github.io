@@ -79,6 +79,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-RunHtmlAsIEMode" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    <!-- post date -->
+    <div class="article-meta">
+      <a href="/2022/04/16/RunHtmlAsIEMode/" class="article-date">
+  <time datetime="2022-04-16T14:03:37.000Z" itemprop="datePublished">2022-04-16</time>
+</a>
+      
+    </div>
+
+    
+    <!-- post title -->
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/16/RunHtmlAsIEMode/">로컬 HTM 혹은 HTML파일을 IE모드로 실행 방법</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <!-- post caption -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        Html 파일을 상황에 따라 Edge IE Mode 또는 Edge(또는 다른 브라우저)로 열어야 하는 경우에 대해, 연결프로그램을 바꿔서 동작하도록 설정할 수 있습니다.기본적으로, html의 연결프로그램은 Edge 또는 IE만 존재하나, Edge IE Mode로 열리도록 하는 연결프로그램을 추가로 구성하실 수 있습니다.
+다음의 레지스트리를 이용하여 Edge IE Mode로 열리는 연결 프로그램이 추가되는지 확인하실 수 있습니다.
+
+확장명에 대한 새 ProgID를 생성합니다.1234[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.html\OpenWithProgids]&quot;MSEdgeIEModeHTML&quot;...
+        <p class="article-readmore">
+          <a href="/2022/04/16/RunHtmlAsIEMode/">Read more</a>
+        </p>
+      
+    </div>
+
+    <footer class="article-footer">
+      <!--a data-url="https://kocssds.github.io/2022/04/16/RunHtmlAsIEMode/" data-id="cl21y88c80000d8oy4i5we1bk" class="article-share-link">공유</a-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE-Mode/" rel="tag">IE Mode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-EdgeNotSecure" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
@@ -538,58 +589,6 @@ Azure DevOps Repo의 구성
 
 
   
-    <article id="post-DeployApptoVMSSusingImageBuilder" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    <!-- post date -->
-    <div class="article-meta">
-      <a href="/2021/08/25/DeployApptoVMSSusingImageBuilder/" class="article-date">
-  <time datetime="2021-08-25T10:32:23.000Z" itemprop="datePublished">2021-08-25</time>
-</a>
-      
-    </div>
-
-    
-    <!-- post title -->
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/25/DeployApptoVMSSusingImageBuilder/">Azure DevOps Pipeline에서 Azure Image Builder를 이용하여 Spring Boot App을 Azure Virtual Machine Scale Set(VMSS)에 배포하기</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <!-- post caption -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        아래의 절차는 Azure DevOps에서 Azure Image Builder를 사용하는 과정을 참고하는 예제이며, 실제 업무상에 적용을 위해서는 많은 부분의 고려가 필요함을 미리 언급합니다. 
-Azure DevOps에서 ‘Build immutable image’ Task를 이용하면, 원하는 머신 이미지를 만들 수 있습니다. 이를 이용하여 몇몇 프로그램이 수행가능한 환경이 설치된 이미지를 생성할 수 있으며, 해당 이미지는 예를 들어 Azure VM Scale Set과 같은 환경의 인스턴스 생성에 이용할 수 있습니다. 
-먼저, java 실행 환경(Spring Boot 앱)이 포함된 머신 이미지를 생성하여, Azure 리소스 그룹에 포함시키는 과정은 아래와 같습니다. 
-Azure DevOps Repo의 구성
-  ...
-        <p class="article-readmore">
-          <a href="/2021/08/25/DeployApptoVMSSusingImageBuilder/">Read more</a>
-        </p>
-      
-    </div>
-
-    <footer class="article-footer">
-      <!--a data-url="https://kocssds.github.io/2021/08/25/DeployApptoVMSSusingImageBuilder/" data-id="cksrdj8nc000058oyam701nrd" class="article-share-link">공유</a-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QuickStart/" rel="tag">QuickStart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VMSS/" rel="tag">VMSS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -607,6 +606,10 @@ Azure DevOps Repo의 구성
       <ul>
         
           <li>
+            <a href="/2022/04/20/ConfigureIEMode/">Microsoft Edge IE Mode 구성 방법</a>
+          </li>
+        
+          <li>
             <a href="/2022/04/18/ConfigureNeutralSitesWithIEMode/">Microsoft Edge IE모드 설정 시 IE모드에서 Redirection이 되면서 SSO(Single Sign On)기능 동작 실패</a>
           </li>
         
@@ -622,10 +625,6 @@ Azure DevOps Repo의 구성
             <a href="/2022/04/17/AboutLocalIEMode/">로컬 IE 모드란?</a>
           </li>
         
-          <li>
-            <a href="/2022/04/17/CompatViewWithIEMode/">Microsoft Edge IE 모드를 설정했을 때 특정사이트가 IE11에서 별도로 호환성 보기 설정을 해야 열리는 문제</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -635,8 +634,8 @@ Azure DevOps Repo의 구성
   <div class="widget-wrap">
     <h3 class="widget-title">태그</h3>
     <div class="widget">
-      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Boards/" rel="tag">Azure Boards</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Pipeline/" rel="tag">Azure Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Pipeline-Agent/" rel="tag">Azure Pipeline Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build-Pipeline/" rel="tag">Build Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Compatibility-View/" rel="tag">Compatibility View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment-Groups/" rel="tag">Deployment Groups</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ExtensionInstallBlocklist/" rel="tag">ExtensionInstallBlocklist</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Extensions/" rel="tag">Extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE-Mode/" rel="tag">IE Mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet-Explorer-11/" rel="tag">Internet Explorer 11</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSA/" rel="tag">MSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neutral-Sites/" rel="tag">Neutral Sites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Not-Secure/" rel="tag">Not Secure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/" rel="tag">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NotifyDisableIEOptions/" rel="tag">NotifyDisableIEOptions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Popup-Dialog/" rel="tag">Popup Dialog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/" rel="tag">QuickStart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service-Connection/" rel="tag">Service Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session-Switching/" rel="tag">Session Switching</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shared-Cookie/" rel="tag">Shared-Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMSS/" rel="tag">VMSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSTS-Agent/" rel="tag">VSTS Agent</a></li></ul> -->
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/">Azure DevOps</a><span class="tag-list-count">12</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-AD">Azure AD</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Boards">Azure Boards</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Pipeline">Azure Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Pipeline-Agent">Azure Pipeline Agent</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Build-Pipeline">Build Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Linux">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/MSA">MSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Notification">Notification</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/QuickStart">QuickStart</a><span class="tag-list-count">4</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/">QuickStart</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Azure-DevOps">Azure DevOps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Linux">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/VMSS">VMSS</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft-Edge/">Microsoft Edge</a><span class="tag-list-count">11</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Chromium">Chromium</a><span class="tag-list-count">11</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Compatibility-View">Compatibility View</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/ExtensionInstallBlocklist">ExtensionInstallBlocklist</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Extensions">Extensions</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/IE-Mode">IE Mode</a><span class="tag-list-count">7</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Internet-Explorer-11">Internet Explorer 11</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Neutral-Sites">Neutral Sites</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Not-Secure">Not Secure</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/NotifyDisableIEOptions">NotifyDisableIEOptions</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Popup-Dialog">Popup Dialog</a><span class="tag-list-count">1</span></li></ul></li></ul>
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Boards/" rel="tag">Azure Boards</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/" rel="tag">Azure DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Pipeline/" rel="tag">Azure Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-Pipeline-Agent/" rel="tag">Azure Pipeline Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build-Pipeline/" rel="tag">Build Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chromium/" rel="tag">Chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Compatibility-View/" rel="tag">Compatibility View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deployment-Groups/" rel="tag">Deployment Groups</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EOS/" rel="tag">EOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ExtensionInstallBlocklist/" rel="tag">ExtensionInstallBlocklist</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Extensions/" rel="tag">Extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE-Mode/" rel="tag">IE Mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Internet-Explorer-11/" rel="tag">Internet Explorer 11</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSA/" rel="tag">MSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft-Edge/" rel="tag">Microsoft Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neutral-Sites/" rel="tag">Neutral Sites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Not-Secure/" rel="tag">Not Secure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/" rel="tag">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NotifyDisableIEOptions/" rel="tag">NotifyDisableIEOptions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Popup-Dialog/" rel="tag">Popup Dialog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/" rel="tag">QuickStart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Service-Connection/" rel="tag">Service Connection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session-Switching/" rel="tag">Session Switching</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shared-Cookie/" rel="tag">Shared-Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMSS/" rel="tag">VMSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSTS-Agent/" rel="tag">VSTS Agent</a></li></ul> -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Azure-DevOps/">Azure DevOps</a><span class="tag-list-count">12</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-AD">Azure AD</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Boards">Azure Boards</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Pipeline">Azure Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Azure-Pipeline-Agent">Azure Pipeline Agent</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Build-Pipeline">Build Pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Linux">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/MSA">MSA</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/Notification">Notification</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Azure-DevOps/QuickStart">QuickStart</a><span class="tag-list-count">4</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QuickStart/">QuickStart</a><span class="tag-list-count">4</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Azure-DevOps">Azure DevOps</a><span class="tag-list-count">4</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Deployment-Groups">Deployment Groups</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/Linux">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/QuickStart/VMSS">VMSS</a><span class="tag-list-count">2</span></li></ul></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft-Edge/">Microsoft Edge</a><span class="tag-list-count">12</span><ul><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Chromium">Chromium</a><span class="tag-list-count">12</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Compatibility-View">Compatibility View</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/EOS">EOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/ExtensionInstallBlocklist">ExtensionInstallBlocklist</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Extensions">Extensions</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/IE-Mode">IE Mode</a><span class="tag-list-count">8</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Internet-Explorer-11">Internet Explorer 11</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Neutral-Sites">Neutral Sites</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/Not-Secure">Not Secure</a><span class="tag-list-count">1</span></li><li class="tag-list-item tag-list-item-child-tag"><a class="tag-list-link tag-list-link-child" href="/tags/Microsoft-Edge/NotifyDisableIEOptions">NotifyDisableIEOptions</a><span class="tag-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -656,7 +655,7 @@ Azure DevOps Repo의 구성
   <div class="widget-wrap">
     <h3 class="widget-title">태그 클라우드</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Azure-AD/" style="font-size: 11.67px;">Azure AD</a> <a href="/tags/Azure-Boards/" style="font-size: 10px;">Azure Boards</a> <a href="/tags/Azure-DevOps/" style="font-size: 20px;">Azure DevOps</a> <a href="/tags/Azure-Pipeline/" style="font-size: 10px;">Azure Pipeline</a> <a href="/tags/Azure-Pipeline-Agent/" style="font-size: 10px;">Azure Pipeline Agent</a> <a href="/tags/Build-Pipeline/" style="font-size: 10px;">Build Pipeline</a> <a href="/tags/Chromium/" style="font-size: 18.33px;">Chromium</a> <a href="/tags/Compatibility-View/" style="font-size: 10px;">Compatibility View</a> <a href="/tags/Deployment-Groups/" style="font-size: 11.67px;">Deployment Groups</a> <a href="/tags/ExtensionInstallBlocklist/" style="font-size: 10px;">ExtensionInstallBlocklist</a> <a href="/tags/Extensions/" style="font-size: 10px;">Extensions</a> <a href="/tags/IE-Mode/" style="font-size: 16.67px;">IE Mode</a> <a href="/tags/Internet-Explorer-11/" style="font-size: 10px;">Internet Explorer 11</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MSA/" style="font-size: 10px;">MSA</a> <a href="/tags/Microsoft-Edge/" style="font-size: 18.33px;">Microsoft Edge</a> <a href="/tags/Neutral-Sites/" style="font-size: 10px;">Neutral Sites</a> <a href="/tags/Not-Secure/" style="font-size: 10px;">Not Secure</a> <a href="/tags/Notification/" style="font-size: 10px;">Notification</a> <a href="/tags/NotifyDisableIEOptions/" style="font-size: 10px;">NotifyDisableIEOptions</a> <a href="/tags/Popup-Dialog/" style="font-size: 10px;">Popup Dialog</a> <a href="/tags/QuickStart/" style="font-size: 15px;">QuickStart</a> <a href="/tags/Service-Connection/" style="font-size: 10px;">Service Connection</a> <a href="/tags/Session-Switching/" style="font-size: 10px;">Session Switching</a> <a href="/tags/Shared-Cookie/" style="font-size: 10px;">Shared-Cookie</a> <a href="/tags/VMSS/" style="font-size: 11.67px;">VMSS</a> <a href="/tags/VSTS-Agent/" style="font-size: 10px;">VSTS Agent</a>
+      <a href="/tags/Azure-AD/" style="font-size: 12px;">Azure AD</a> <a href="/tags/Azure-Boards/" style="font-size: 10px;">Azure Boards</a> <a href="/tags/Azure-DevOps/" style="font-size: 20px;">Azure DevOps</a> <a href="/tags/Azure-Pipeline/" style="font-size: 10px;">Azure Pipeline</a> <a href="/tags/Azure-Pipeline-Agent/" style="font-size: 10px;">Azure Pipeline Agent</a> <a href="/tags/Build-Pipeline/" style="font-size: 10px;">Build Pipeline</a> <a href="/tags/Chromium/" style="font-size: 20px;">Chromium</a> <a href="/tags/Compatibility-View/" style="font-size: 10px;">Compatibility View</a> <a href="/tags/Deployment-Groups/" style="font-size: 12px;">Deployment Groups</a> <a href="/tags/EOS/" style="font-size: 10px;">EOS</a> <a href="/tags/ExtensionInstallBlocklist/" style="font-size: 10px;">ExtensionInstallBlocklist</a> <a href="/tags/Extensions/" style="font-size: 10px;">Extensions</a> <a href="/tags/IE-Mode/" style="font-size: 18px;">IE Mode</a> <a href="/tags/Internet-Explorer-11/" style="font-size: 10px;">Internet Explorer 11</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/MSA/" style="font-size: 10px;">MSA</a> <a href="/tags/Microsoft-Edge/" style="font-size: 20px;">Microsoft Edge</a> <a href="/tags/Neutral-Sites/" style="font-size: 10px;">Neutral Sites</a> <a href="/tags/Not-Secure/" style="font-size: 10px;">Not Secure</a> <a href="/tags/Notification/" style="font-size: 10px;">Notification</a> <a href="/tags/NotifyDisableIEOptions/" style="font-size: 10px;">NotifyDisableIEOptions</a> <a href="/tags/Popup-Dialog/" style="font-size: 10px;">Popup Dialog</a> <a href="/tags/QuickStart/" style="font-size: 16px;">QuickStart</a> <a href="/tags/Service-Connection/" style="font-size: 10px;">Service Connection</a> <a href="/tags/Session-Switching/" style="font-size: 10px;">Session Switching</a> <a href="/tags/Shared-Cookie/" style="font-size: 10px;">Shared-Cookie</a> <a href="/tags/VMSS/" style="font-size: 12px;">VMSS</a> <a href="/tags/VSTS-Agent/" style="font-size: 10px;">VSTS Agent</a>
     </div>
   </div>
 
