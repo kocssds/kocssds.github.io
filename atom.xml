@@ -6,7 +6,7 @@
   <link href="https://kocssds.github.io/atom.xml" rel="self"/>
   
   <link href="https://kocssds.github.io/"/>
-  <updated>2022-07-05T00:45:38.721Z</updated>
+  <updated>2022-07-07T03:06:17.911Z</updated>
   <id>https://kocssds.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Microsoft Edge IE Mode 정책 적용에 대한 시점 의견</title>
+    <link href="https://kocssds.github.io/2022/07/07/TimeOfApplyInIEMode/"/>
+    <id>https://kocssds.github.io/2022/07/07/TimeOfApplyInIEMode/</id>
+    <published>2022-07-07T02:08:38.000Z</published>
+    <updated>2022-07-07T03:06:17.911Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://kocssds.github.io/2022/04/20/ConfigureIEMode/">Microsoft Edge IE Mode 적용</a>이후에 적용 시점과 관련한 아래와 같은 추가적인 정책을 고려할 수 있습니다.</p><p><em><strong>DelayNavigationsForInitialSiteListDownload</strong></em></p><p><a href="https://docs.microsoft.com/ko-kr/deployedge/microsoft-edge-policies#delaynavigationsforinitialsitelistdownload">탭 탐색 전에 엔터프라이즈 모드 사이트 목록을 사용하도록 요청</a></p><blockquote><p>브라우저가 초기 엔터프라이즈 모드 사이트 목록을 다운로드할 때까지 Microsoft Edge 탭의 탐색 대기 여부를 지정할 수 있습니다. 이 설정은 브라우저 홈페이지가 Internet Explorer 모드로 로드되어야 하는 시나리오를 위한 것으로, IE 모드가 활성화된 후 브라우저를 먼저 실행하는 것이 중요합니다. 이 시나리오가 없는 경우 홈페이지를 로드하는 성능을 저하시킬 수 있기 때문에이 설정을 사용하지 않는 것이 좋습니다. </p></blockquote><p>이 설정은 IE 모드가 활성화된 후 브라우저에서 처음 실행되는 경우와 같이 Microsoft Edge에 캐시된 엔터프라이즈 모드 사이트 목록이 없는 경우에만 적용됩니다.</p><ul><li>쉽게 설명 드리자면, 이 정책을 적용할 경우, IE모드의 XML 사이트 목록을 로드가 완료되기 전에는 웹 사이트에 접속을 하지 않도록 합니다.<br>이로써 IE모드로 구성된 사이트는 IE모드로 접속을 보장하기 위한 수단이라고 보시면 될 것 같습니다. </li><li>다만, IE 모드 로드를 완료하기까지 시간이 오래 소요될 경우 사용자 입장에서는 마치 접속이 안되는 ‘성능 이슈’처럼 느낄 수 있어 운용 상의 주의가 필요합니다.</li><li>이 기능은 Edge가 기존에 IE모드 사이트 목록을 로드한 적이 없거나, 로드한 적이 있지만 캐시가 삭제되어 없는 경우에만 됩니다. </li></ul><p><em><strong>NavigationDelayForInitialSiteListDownloadTimeout</strong></em></p><p><a href="https://docs.microsoft.com/ko-kr/deployedge/microsoft-edge-policies#set-a-timeout-for-delay-of-tab-navigation-for-the-enterprise-mode-site-list">엔터프라이즈 모드 사이트 목록에 대한 탭 탐색 지연 시간 제한 설정</a></p><blockquote><p>탭은 엔터프라이즈 모드 사이트 목록이 다운로드될 때까지 이 시간 제한보다 오래 기다리지 않습니다. 시간 제한이 만료되면 브라우저가 엔터프라이즈 모드 사이트 목록을 다운로드하지 않은 경우 Microsoft Edge 탭은 계속 탐색합니다. 시간 제한 값은 1초~20초 사이입니다.<br>이 정책의 시간 제한을 기본값 2초보다 큰 값으로 설정하면 2초 후에 정보 표시줄이 사용자에게 표시됩니다. 정보 표시줄에는 엔터프라이즈 모드 사이트 목록 다운로드가 완료될 때까지 기다리는 것을 그만둘 수 있는 버튼이 있습니다.<br>이 정책을 구성하지 않으면 2초의 시간 제한 기본값이 사용됩니다. 이 기본값은 차후에 변경될 수 있습니다.</p></blockquote><ul><li>만약 IE모드 사이트 목록을 로드할 때까지 기다릴 수 있는 최대 시간 제한을 설정합니다. 기본 값은 2초이며 최대 20초까지 기다릴 수 있도록 기능을 제공합니다.</li></ul><p><strong>[참고 사항]</strong></p><ol><li>   캐시된 IE목록이 없을 경우</li></ol><ul><li>93버전 이전에는 캐시된 IE목록이 없을 경우에도 IE모드 목록을 로드를 시작하기까지 최소 65초 이상 소요되었으나, </li><li>93버전부터 캐시된 IE목록이 없을 경우 Edge가 실행되자 마자 곧바로 IE모드 사이트 목록을 로드하도록 변경되었습니다. </li><li>이에 가급적 최신 브라우저를 사용하도록 권해 드리겠습니다.</li></ul><ol start="2"><li>   IE목록이 캐시되어 있을 경우</li></ol><ul><li>이미 IE 목록이 캐시되어 있는 경우, 기본적으로 2시간(120분)마다 새로운 변경 사항(업데이트 버전)이 있는지 체크합니다.</li><li>이 시간은 그룹 정책을 통해 변경이 가능하며 최소 30분까지 줄일 수 있습니다. </li><li>다음을 참고해 주십시오.</li></ul><p><em><strong>InternetExplorerIntegrationSiteListRefreshInterval</strong></em></p><p><a href="https://docs.microsoft.com/ko-kr/deployedge/microsoft-edge-policies#internetexplorerintegrationsitelistrefreshinterval">엔터프라이즈 모드 사이트 목록을 새로 고치는 빈도 구성</a></p><blockquote><p>이 설정을 사용하면 엔터프라이즈 모드 사이트 목록에 대한 사용자 지정 새로 고침 간격을 지정할 수 있습니다. 새로 고침 간격은 분 단위로 지정됩니다. 최소 새로 고침 간격은 30분입니다.<br>이 설정은 InternetExplorerIntegrationSiteList 또는 InternetExplorerIntegrationCloudSiteList 설정이 구성된 경우에만 적용됩니다.<br>이 정책을 구성하는 경우 Microsoft Edge는 지정된 새로 고침 간격을 사용하여 구성된 엔터프라이즈 모드 사이트 목록의 업데이트된 버전을 검색하려고 시도합니다.<br>이 정책을 사용하지 않도록 설정하거나 구성하지 않으면 Microsoft Edge는 기본 새로 고침 간격(현재 120분)을 사용합니다.</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://kocssds.github.io/2022/04/20/ConfigureIEMode/&quot;&gt;Microsoft Edge IE Mode 적용&lt;/a&gt;이후에 적용 시점과 관련한 아래와 같은 추가적인 정책을 고려할 수 있습니다.&lt;/</summary>
+      
+    
+    
+    
+    
+    <category term="Microsoft Edge" scheme="https://kocssds.github.io/tags/Microsoft-Edge/"/>
+    
+    <category term="Chromium" scheme="https://kocssds.github.io/tags/Chromium/"/>
+    
+    <category term="IE Mode" scheme="https://kocssds.github.io/tags/IE-Mode/"/>
+    
+    <category term="Policy" scheme="https://kocssds.github.io/tags/Policy/"/>
+    
+  </entry>
   
   <entry>
     <title>Edge 브라우저는 기본적으로 페이지 오픈을 &#39;새탭&#39;으로 열립니다.</title>
@@ -529,30 +557,6 @@
     <category term="Azure AD" scheme="https://kocssds.github.io/tags/Azure-AD/"/>
     
     <category term="MSA" scheme="https://kocssds.github.io/tags/MSA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Azure DevOps에서의 Service Connection에 대해</title>
-    <link href="https://kocssds.github.io/2021/10/15/MakeServiceConnectionForDevOps/"/>
-    <id>https://kocssds.github.io/2021/10/15/MakeServiceConnectionForDevOps/</id>
-    <published>2021-10-15T06:24:54.000Z</published>
-    <updated>2021-10-15T08:45:37.501Z</updated>
-    
-    <content type="html"><![CDATA[<p>Azure DevOps Pipeline에서 Azure Resource를 사용하여 처리하기 위해서는 Azure Resource에 대한 접근 권한이 필요합니다. 실 예로 Azure Pipeline의 구성을 위해 임의의 Task을 추가하여 실행할 경우에 해당 Task를 실행 시 Azure Resource의 접근을 위해 Azure Subscription 정보를 입력하는 경우가 있는 데, 이에 해당하는 적절한 Service Connection을 생성하여 입력 처리하는 것이 일반적입니다. 이때 필요한 Service Connection은 다음과 같은 과정을 거쳐서 생성할 수 있습니다. </p><h3 id="Azure-DevOps-Service-Connection-추가"><a href="#Azure-DevOps-Service-Connection-추가" class="headerlink" title="Azure DevOps Service Connection 추가"></a><strong>Azure DevOps Service Connection 추가</strong></h3><ol><li>   Azure DevOps 포털에 로그인합니다. </li><li>   해당 Project의 Project settings에 들어갑니다.</li><li>   Service Connections에서 새로운 Service Connection을 생성합니다. </li><li>   New Service Connection에서 Azure Resource Manager를 선택합니다. </li><li>   Authentication Metod는 Service principal (automatic)을 선택한 후 다음을 누릅니다.</li><li>   Scope level은 Subscription으로 선택하고 하단의 Security는 “Grant access permission to all pipelines” 체크합니다.</li><li>   Subscription, Resource Group(기존에 생성한 Resource Group을 선택) 그리고, Service Connection 이름(예를 들어, ”AppConnection”)을 입력하고 저장합니다.</li></ol><p>정상적으로 Service Connection이 생성되면, AppConnection이라는 이름의 Service Connection이 생성이 되며, 이를 클릭하면 아래와 같은 메뉴를 확인할 수 있습니다. </p><ul><li>Manage Service Connection roles</li><li>Manage Service Principal</li></ul><p><img src="/images/2021-10-15-15-31-26.png"></p><h3 id="Manage-Service-Principal"><a href="#Manage-Service-Principal" class="headerlink" title="Manage Service Principal"></a><strong>Manage Service Principal</strong></h3><p>“Manage Service Principal”을 클릭하면, Azure 포털에 존재하는 Service Principal을 확인할 수 있는 데, 일반적으로 “조직이름-프로젝트이름-UUID” 형태의 이름을 가지고 있습니다. 해당 Service Principal의 좌측 메뉴에 Certificates $ secret을 확인해 보면, 기본적으로 Client secrets가 존재하고, 이에 대한 만료일이 지정되어 있기 때문에 이에 대해서는 반드시 확인하여 만료이후에 Azure Pipeline 처리에 문제가 되지 않도록 관리해야 합니다.<br>간혹 갱신 이후에 “Failed to obtain the Json Web Token(JWT) using service principal client ID. Exception message: AADSTS7000215: Invalid client secret is provided.” 이와 같은 오류가 발생할 수 있는 데, 이 경우에는 아래와 같은 단계를 통해서 문제를 피할 수 있습니다.</p><ol><li>   Service Connections에서 문제가 되는 Service Connection을 선택하고 Edit를 클릭합니다. </li><li>   Description(optional)을 수정하고 저장합니다. (Verify는 하지 마십시오.)</li><li>   Service Connection Edit 화면을 빠져나간 후에 해당 페이지를 refresh합니다. </li><li>   다시 Edit 화면으로 들어가서 Verify를 선택합니다. </li><li>   다시 저장 버튼을 클릭하여 저장합니다. </li></ol><h3 id="Manage-service-connection-roles"><a href="#Manage-service-connection-roles" class="headerlink" title="Manage service connection roles"></a><strong>Manage service connection roles</strong></h3><p>또한, “Manage service connection roles”를 클릭하면, Azure Portal로 이동하면서 해당 Service Principal 이 속한 Subscription 정보의 Access Control(IAM)를 확인할 수 있습니다. IAM의 role assignments 메뉴를 확인하면, Azure DevOps에서 등록된 Service Principal 이 “App” type의 <strong>Contributor Role</strong>로써 등록이 된 것으로 확인할 수 있습니다. </p><p>만일, 추가적인 권한이 필요하다면, </p><ol><li>   Add Role Assignment 메뉴로 들어가서 </li><li>   “Role”에 필요한 권한을 선택하고, </li><li>   “Assign access to”에 “user, group or service principal”을 선택, 그리고, “select”에 앞서서 생성한 Service Principal을 검색하여 선택하면, </li></ol><p>원하는 Role에 Azure DevOps에서 생성한 Service Principal을 추가할 수 있습니다. </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Azure DevOps Pipeline에서 Azure Resource를 사용하여 처리하기 위해서는 Azure Resource에 대한 접근 권한이 필요합니다. 실 예로 Azure Pipeline의 구성을 위해 임의의 Task을 추가하여 실행할 경우</summary>
-      
-    
-    
-    
-    
-    <category term="Azure DevOps" scheme="https://kocssds.github.io/tags/Azure-DevOps/"/>
-    
-    <category term="Service Connection" scheme="https://kocssds.github.io/tags/Service-Connection/"/>
     
   </entry>
   
